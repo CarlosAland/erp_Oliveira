@@ -189,7 +189,7 @@ body {
 
 .table {
     border-collapse: collapse;
-    border: 2px solid #04703c;
+    border: 2px solid #10834b;
     width: 100%;
 }
 
@@ -205,7 +205,7 @@ tfoot {
 }
 
 thead {
-    background-color: #063b21;
+    background-color: #10834b;
     font-size: large;
     font-stretch: normal;
     text-align: left;
