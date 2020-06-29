@@ -43,7 +43,7 @@ function feedRegion($id, $model, $attr)
 
 <header class="cabecalho">
   <h1>Oliveira Podas</h1>
-  <h2>Editar Equipes</h2>
+  <h2>Editar LT's</h2>
 </header>
 
 
@@ -94,7 +94,7 @@ function feedRegion($id, $model, $attr)
     "inputRegiao" => FILTER_SANITIZE_STRING
   ];
 
-  //CREATE NEW WORKER
+  //CREATE NEW Lts
 
   $formArray = filter_input_array(INPUT_POST, $filterForm);
   if ($formArray) {

@@ -42,8 +42,8 @@ $regiaoDAO = new RegiaoDAO();
                     <th scope='row'>{$regioes['TREGIAO_ID_PK']}</th>
                     <td>{$regioes['TREGIAO_NOME']}</td>
                     <td>
-                    <a class='btn btn-primary' role='button' href='editarregioes.php?id={$regioes['TREGIAO_ID_PK']}' >Editar</a>
-                    <a class='btn btn-danger' role='button' href='../recurso/delet/delRegial.php?id={$regioes['TREGIAO_ID_PK']}' data-confirm=''>Apagar</a>
+                    <a class='btn btn-primary' role='button' href='editarRegioes.php?id={$regioes['TREGIAO_ID_PK']}' >Editar</a>
+                    <a class='btn btn-danger' role='button' href='../recurso/delet/delRegiao.php?id={$regioes['TREGIAO_ID_PK']}' data-confirm=''>Apagar</a>
                 
                     </td>
                     </tr>

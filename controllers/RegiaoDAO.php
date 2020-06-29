@@ -4,20 +4,20 @@ require_once __DIR__ . "/pdo_conexao.php";
 
 class RegiaoDAO
 {
-  // public function create(Regiao $regiao)
-  // {
+  public function create(Regiao $regiao)
+  {
 
-  //   try {
-  //     $sql = 'INSERT INTO (tregiao_NOME) VALUE (?)';
-  //     $stmt = Conect::getConn()->prepare($sql);
+    try {
+      $sql = 'INSERT INTO tregiao (TREGIAO_NOME) VALUE (?)';
+      $stmt = Conect::getConn()->prepare($sql);
 
-  //     $stmt->bindValue(1, $regiao->getNome());
+      $stmt->bindValue(1, $regiao->getNome());
 
-  //     $stmt->execute();
-  //   } catch (Exception $e) {
-  //     echo $e->getMessage();
-  //   }
-  // }
+      $stmt->execute();
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
+  }
 
   public function read()
   {
@@ -57,26 +57,25 @@ class RegiaoDAO
     }
   }
 
-  // public function upDate(Funcao $regiao)
-  // {
-  //   try {
+  public function upDate(Regiao $regiao, $id)
+  {
+    try {
 
-  //     $sql = 'UPDATE tregiao SET TREGIAO_NOME=? WHERE id=?';
-  //     $stmt = Conect::getConn()->prepare($sql);
+      $sql = "UPDATE tregiao SET TREGIAO_NOME=? WHERE TREGIAO_ID_PK='$id'";
+      $stmt = Conect::getConn()->prepare($sql);
 
-  //     $stmt->bindValue(1, $regiao->getNome());
-  //     $stmt->bindValue(2, $regial->getCod());
-  //     $stmt->execute();
-  //   } catch (Exception $e) {
-  //     echo $e->getMessage();
-  //   }
-  // }
+      $stmt->bindValue(1, $regiao->getNome());
+      $stmt->execute();
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
+  }
 
   public function delete($id)
   {
     try {
 
-      $sql = 'DELETE FROM tregiao WHERE id=?';
+      $sql = 'DELETE FROM tregiao WHERE TREGIAO_ID_PK=?';
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $id);
