@@ -147,7 +147,7 @@ function feedBox($id, $model, $attr)
     <div class="row">
       <div class="card-body text-primary">
         <div class="card-body">
-          <div class="card border-primary mb-12" style="max-width: 50rem;">
+          <div class="card border-primary mb-12" style="max-width: 45rem;">
             <div class="card-header">Dados Bancários</div>
             <div class="card-body text-primary">
 
@@ -179,11 +179,11 @@ function feedBox($id, $model, $attr)
       <!-- bloco dados para demissao-->
       <div class="col-sm-6">
         <div class="card-body">
-          <div class="card border-danger mb-10" style="max-width: 40rem;">
+          <div class="card border-danger mb-10" style="max-width: 35rem;">
             <div class="card-header">Dados para Demissão</div>
             <div class="card-body text-danger">
 
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-5">
                 <label for="text">Data Demissão </label>
                 <input type="date" class="form-control" name="datademissao" value="<?= feedForm($id, $funcionarios, 'TFUNC_DT_DEMIS') ?>">
               </div>
@@ -192,6 +192,7 @@ function feedBox($id, $model, $attr)
                 <input type="text" class="form-control" name="motivodemissao" value="<?= feedForm($id, $funcionarios, 'TFUNC_MOTIVO_DEMIS') ?>">
               </div>
             </div>
+          </div>
           </div>
 
 

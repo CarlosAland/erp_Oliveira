@@ -14,23 +14,27 @@ $ltDAO = new LtDAO();
   <h2>Cadastro de LTs</h2>
 </header>
 
-
-
 <body>
 
   <form class="formtop" action="./cadastroLts.php" method="POST" enctype="multipart/form-data">
-    <div class="form-row">
-      <div class="form-group col-md-10">
-        <label for="nome">Nome da LT </label>
-        <input type="text" class="form-control" name="nome">
+  <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="text">Nome da LT </label>
+        <input type="text" class="form-control" name="nome" require>
       </div>
-      <div class="form-group col-md-6">
-        <label for="text">Sigla </label>
-        <input type="text" class="form-control" name="sigla">
+      <div class="form-group col-md-4">
+        <label for="nome">Local</label>
+        <input type="text" class="form-control" name="local" require>
       </div>
+      <div class="form-group col-md-2">
+        <label for="nome">Sigla</label>
+        <input type="text" class="form-control" name="sigla" require>
+      </div>
+   
+           
       <div class="form-group col-md-6">
         <label for="inputRegiao">Região</label>
-        <select id="inputRegiao" class="form-control" name="inputRegiao">
+        <select id="inputRegiao" class="form-control" name="inputRegiao"require>
           <option selected>Escolher...</option>
           <?php
           foreach ($regiaoDAO->read() as $regioes) {
@@ -53,6 +57,7 @@ $ltDAO = new LtDAO();
   //FILTER INPUT FORM
   $filterForm = [
     "nome" => FILTER_SANITIZE_STRING,
+    "local" => FILTER_SANITIZE_STRING,
     "sigla" => FILTER_SANITIZE_STRING,
     "inputRegiao" => FILTER_SANITIZE_STRING,
   ];
@@ -66,8 +71,9 @@ $ltDAO = new LtDAO();
     } else {
       $lts = new Lt(
         $formArray['nome'],
+        $formArray['local'],
         $formArray['sigla'],
-        $formArray['inputRegiao'],
+        $formArray['inputRegiao']
       );
       $ltDAO->create($lts);
       echo "<script>Swal.fire('', 'Cadastro realizado com sucesso!', 'success');</script>";

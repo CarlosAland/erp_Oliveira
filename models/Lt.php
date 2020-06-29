@@ -8,9 +8,10 @@ class Lt
     private $sigla;
     private $regiao; // recebe o id da regiao que pertence
 
-    public function __construct($nome, $sigla, $regiao)
+    public function __construct($nome, $local, $sigla, $regiao)
     {
         $this->nome = $nome;
+        $this->local = $local;
         $this->sigla = $sigla;
         $this->regiao = $regiao;
     }
