@@ -62,7 +62,7 @@ class EquipeDAO
     try {
 
       $sql = "UPDATE tequipe SET TEQUIPE_NOME=?, TEQUIPE_RESP=?, TEQUIPE_VLR_SERV=?,
-      TEQUIPE_OBS=?, TEQUIPE_STATUS=? WHERE TEQUIPE_ID_PK=?'$id'";
+      TEQUIPE_OBS=?, TEQUIPE_STATUS=? WHERE TEQUIPE_ID_PK='$id'";
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $equipe->getNome());
