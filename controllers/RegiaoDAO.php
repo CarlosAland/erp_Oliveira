@@ -4,20 +4,20 @@ require_once __DIR__ . "/pdo_conexao.php";
 
 class RegiaoDAO
 {
-  public function create(Regiao $regiao)
-  {
+  // public function create(Regiao $regiao)
+  // {
 
-    try {
-      $sql = 'INSERT INTO (tregiao_NOME) VALUE (?)';
-      $stmt = Conect::getConn()->prepare($sql);
+  //   try {
+  //     $sql = 'INSERT INTO (tregiao_NOME) VALUE (?)';
+  //     $stmt = Conect::getConn()->prepare($sql);
 
-      $stmt->bindValue(1, $regiao->getNome());
+  //     $stmt->bindValue(1, $regiao->getNome());
 
-      $stmt->execute();
-    } catch (Exception $e) {
-      echo $e->getMessage();
-    }
-  }
+  //     $stmt->execute();
+  //   } catch (Exception $e) {
+  //     echo $e->getMessage();
+  //   }
+  // }
 
   public function read()
   {
@@ -38,20 +38,39 @@ class RegiaoDAO
     }
   }
 
-  public function upDate(Funcao $regiao)
+  public function readForId($id)
   {
     try {
 
-      $sql = 'UPDATE tregiao SET TREGIAO_NOME=? WHERE id=?';
+      $sql = "SELECT * FROM tregiao WHERE TREGIAO_ID_PK='$id'";
       $stmt = Conect::getConn()->prepare($sql);
-
-      $stmt->bindValue(1, $regiao->getNome());
-      $stmt->bindValue(2, $regial->getCod());
       $stmt->execute();
+
+      if ($stmt->rowCount() > 0) {
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+      } else {
+        return [];
+      }
     } catch (Exception $e) {
       echo $e->getMessage();
     }
   }
+
+  // public function upDate(Funcao $regiao)
+  // {
+  //   try {
+
+  //     $sql = 'UPDATE tregiao SET TREGIAO_NOME=? WHERE id=?';
+  //     $stmt = Conect::getConn()->prepare($sql);
+
+  //     $stmt->bindValue(1, $regiao->getNome());
+  //     $stmt->bindValue(2, $regial->getCod());
+  //     $stmt->execute();
+  //   } catch (Exception $e) {
+  //     echo $e->getMessage();
+  //   }
+  // }
 
   public function delete($id)
   {

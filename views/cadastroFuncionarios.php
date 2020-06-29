@@ -216,6 +216,3 @@ $equipeDAO = new EquipeDAO();
 
   require(__DIR__ . '../../templates/rodape.php');
   ?>
-</body>
-
-</html>

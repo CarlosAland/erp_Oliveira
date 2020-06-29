@@ -8,10 +8,14 @@ class LtDAO
   {
 
     try {
-      $sql = 'INSERT INTO tlt(TLT_NOME) VALUE (?)';
+      $sql = 'INSERT INTO tlt(TLT_NOME, TLT_LOCAL, TLT_SIGLA, TLT_REGIAO_FK)
+      VALUE (?, ?, ?, ?)';
       $stmt = Conect::getConn()->prepare($sql);
 
-      $stmt->bindValue(1, $equipe->getNome());
+      $stmt->bindValue(1, $lt->getNome());
+      $stmt->bindValue(2, $lt->getLocal());
+      $stmt->bindValue(3, $lt->getSigla());
+      $stmt->bindValue(4, $lt->getRegiao());
 
       $stmt->execute();
     } catch (Exception $e) {
@@ -38,15 +42,37 @@ class LtDAO
     }
   }
 
-  public function upDate(Funcao $lt)
+  public function readForId($id)
   {
     try {
 
-      $sql = 'UPDATE tlt SET TLT_NOME=? WHERE id=?';
+      $sql = "SELECT * FROM tlt WHERE TLT_ID_PK='$id'";
+      $stmt = Conect::getConn()->prepare($sql);
+      $stmt->execute();
+
+      if ($stmt->rowCount() > 0) {
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+      } else {
+        return [];
+      }
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
+  }
+
+  public function upDate(Lt $lt, $id)
+  {
+    try {
+
+      $sql = "UPDATE tlt SET TLT_NOME=?, TLT_LOCAL=?, TLT_SIGLA=?,
+      TLT_REGIAO_FK=? WHERE TLT_ID_PK='$id'";
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $lt->getNome());
-      $stmt->bindValue(2, $lt->getCod());
+      $stmt->bindValue(2, $lt->getLocal());
+      $stmt->bindValue(3, $lt->getSigla());
+      $stmt->bindValue(4, $lt->getRegiao());
       $stmt->execute();
     } catch (Exception $e) {
       echo $e->getMessage();
@@ -57,7 +83,7 @@ class LtDAO
   {
     try {
 
-      $sql = 'DELETE FROM tlt WHERE id=?';
+      $sql = 'DELETE FROM tlt WHERE TLT_ID_PK=?';
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $id);
