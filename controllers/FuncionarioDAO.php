@@ -67,16 +67,35 @@ class FuncionarioDAO
     }
   }
 
-  public function upDate(Funcionario $funcionario)
+  public function readForId($id)
   {
     try {
 
-      $sql = 'UPDATE tfuncionario SET (TFUNC_CODIGO = ?, TFUNC_NOME = ? ,TFUNC_END = ?,
-    TFUNC_BAIRRO = ?, TFUNC_CEP = ?, TFUNC_CIDADE = ?, TFUNC_EST = ?, TFUNC_RG = ?,
-    TFUNC_CPF = ?, TFUNC_TEL = ?, TFUNC_CEL = ?, TFUNC_DT_NASC = ?, TFUNC_DT_ADMIS = ?,
-    TFUNC_DT_DEMIS = ?, TFUNC_MOTIVO_DEMIS = ?, TFUNC_SALARIO = ?, TFUNC_OBS = ?,
-    TFUNC_STATUS = ?,TFUNC_FUNCAO_ID_FK = ?, TFUNC_EQUIPE_ID_FK  = ?,
-    TFUNC_BANCO = ?, TFUNC_AGENCIA = ?, TFUNC_CONTA = ?, TFUNC_TIPOCONTA = ?) WHERE TFUNC_ID=?';
+      $sql = "SELECT * FROM tfuncionario WHERE TFUNC_ID='$id'";
+      $stmt = Conect::getConn()->prepare($sql);
+      $stmt->execute();
+
+      if ($stmt->rowCount() > 0) {
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+      } else {
+        return [];
+      }
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
+  }
+
+  public function upDate(Funcionario $funcionario, $id)
+  {
+    try {
+
+      $sql = "UPDATE tfuncionario SET TFUNC_CODIGO = ?, TFUNC_NOME = ? ,TFUNC_END = ?,
+      TFUNC_BAIRRO = ?, TFUNC_CEP = ?, TFUNC_CIDADE = ?, TFUNC_EST = ?, TFUNC_RG = ?,
+      TFUNC_CPF = ?, TFUNC_TEL = ?, TFUNC_CEL = ?, TFUNC_DT_NASC = ?, TFUNC_DT_ADMIS = ?,
+      TFUNC_DT_DEMIS = ?, TFUNC_MOTIVO_DEMIS = ?, TFUNC_SALARIO = ?, TFUNC_STATUS = ?,
+      TFUNC_FUNCAO_ID_FK = ?, TFUNC_DATA_CAD = ?, TFUNC_EQUIPE_ID_FK = ?, TFUNC_BANCO = ?,
+      TFUNC_AGENCIA = ?, TFUNC_CONTA = ?, TFUNC_TIPOCONTA = ?  WHERE  TFUNC_ID='$id'";
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $funcionario->getCod());
@@ -95,15 +114,14 @@ class FuncionarioDAO
       $stmt->bindValue(14, $funcionario->getDataDemissao());
       $stmt->bindValue(15, $funcionario->getMotivoDemissao());
       $stmt->bindValue(16, $funcionario->getSalario());
-      $stmt->bindValue(17, $funcionario->getObs());
-      $stmt->bindValue(18, $funcionario->getStatus());
-      $stmt->bindValue(19, $funcionario->getFuncao());
+      $stmt->bindValue(17, true);
+      $stmt->bindValue(18, $funcionario->getFuncao());
+      $stmt->bindValue(19, $funcionario->getDate());
       $stmt->bindValue(20, $funcionario->getEquipe());
       $stmt->bindValue(21, $funcionario->getBanco());
       $stmt->bindValue(22, $funcionario->getAgencia());
       $stmt->bindValue(23, $funcionario->getConta());
       $stmt->bindValue(24, $funcionario->getTipoConta());
-      $stmt->bindValue(25, $funcionario->getId());
       $stmt->execute();
     } catch (Exception $e) {
       echo $e->getMessage();

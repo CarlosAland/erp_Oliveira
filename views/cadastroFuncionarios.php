@@ -25,7 +25,7 @@ $equipeDAO = new EquipeDAO();
 <body>
 
 
-<form class="formtop" action="./cadastroFuncionarios.php" method="POST" enctype="multipart/form-data">
+  <form class="formtop" action="./cadastroFuncionarios.php" method="POST" enctype="multipart/form-data">
     <div class="form-row">
       <div class="form-group col-md-1">
         <label for="text">Codigo </label>
@@ -33,14 +33,14 @@ $equipeDAO = new EquipeDAO();
       </div>
       <div class="form-group col-md-10">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" name="nome" require>
+        <input type="text" class="form-control" name="nome">
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="text">Endereço </label>
-        <input type="text" class="form-control" name="endereco" require>
+        <input type="text" class="form-control" name="endereco">
       </div>
       <div class="form-group col-md-2">
         <label for="nome">Bairro</label>
@@ -66,29 +66,28 @@ $equipeDAO = new EquipeDAO();
       </div>
       <div class="form-group col-md-1">
         <label for="nome">Celular</label>
-        <input type="text" class="form-control" name="cel" require>
+        <input type="text" class="form-control" name="cel">
       </div>
 
       <div class="form-group col-md-2">
         <label for="nome">RG</label>
-        <input type="text" class="form-control" name="rg"require
-        >
+        <input type="text" class="form-control" name="rg">
       </div>
       <div class="form-group col-md-2">
         <label for="nome">CPF</label>
-        <input type="text" class="form-control" name="cpf"require>
+        <input type="text" class="form-control" name="cpf">
       </div>
       <div class="form-group col-md-1">
         <label for="nome">Salário</label>
         <input type="num" class="form-control" name="salario">
       </div>
       <div class="form-group col-md-2">
-        <label for="inputState">Função</label>
-        <select id="inputState" class="form-control" name="inputState">
+        <label for="inputFuncao">Função</label>
+        <select id="inputFuncao" class="form-control" name="inputFuncao">
           <option selected>Escolher...</option>
           <?php
-         foreach ($funcaoDAO->read() as $funcoes) {
-          echo "<option value='{$funcoes['TFUNCAO_ID_PK']}'> {$funcoes['TFUNCAO_NOME']} </option>";
+          foreach ($funcaoDAO->read() as $funcoes) {
+            echo "<option value='{$funcoes['TFUNCAO_ID_PK']}'> {$funcoes['TFUNCAO_NOME']} </option>";
           } ?>
         </select>
 
@@ -103,56 +102,56 @@ $equipeDAO = new EquipeDAO();
         <input type="date" class="form-control" name="dataadmin">
 
       </div>
-   
 
-    <div class="form-group col-md-4">
-        <label for="inputState">Equipe</label>
-        <select id="inputState" class="form-control" name="inputState">
+
+      <div class="form-group col-md-4">
+        <label for="inputEquipe">Equipe</label>
+        <select id="inputEquipe" class="form-control" name="inputEquipe">
           <option selected>Escolher...</option>
           <?php
           foreach ($equipeDAO->read() as $equipe) {
             echo "<option value='{$equipe['TEQUIPE_ID_PK']}'> {$equipe['TEQUIPE_NOME']} </option>";
           } ?>
         </select>
-        
 
-      </div>  
-      </div>  
-<div>
-  <!-- bloco dados bancarios-->
-<div class="row">
-<div class="card-body text-primary">
-<div class="card-body">
-      <div class="card border-primary mb-12"  >
-      <div class="card-header">Dados Bancários</div>
-        <div class="card-body text-primary">
-    
-        <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="text">Banco </label>
-        <input type="text" class="form-control" name="banco">
+
       </div>
-      <div class="form-group col-md-2">
-        <label for="nome">Agência</label>
-        <input type="text" class="form-control" name="agencia">
-      </div>
-      <div class="form-group col-md-2">
-        <label for="nome">Conta</label>
-        <input type="text" class="form-control" name="conta" placeholder="Conta com o Dígito">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="nome">Tipo da Conta</label>
-        <input type="text" class="form-control" name="tipoconta" placeholder="Corrente ou Poupança">
-      </div>
-    
-      </div>
-      </div>
-      </div>
-      
     </div>
-  </div>
-  </div>
-  </div>        
+    <div>
+      <!-- bloco dados bancarios-->
+      <div class="row">
+        <div class="card-body text-primary">
+          <div class="card-body">
+            <div class="card border-primary mb-12">
+              <div class="card-header">Dados Bancários</div>
+              <div class="card-body text-primary">
+
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="text">Banco </label>
+                    <input type="text" class="form-control" name="banco">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="nome">Agência</label>
+                    <input type="text" class="form-control" name="agencia">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="nome">Conta</label>
+                    <input type="text" class="form-control" name="conta" placeholder="Conta com o Dígito">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="nome">Tipo da Conta</label>
+                    <input type="text" class="form-control" name="tipoconta" placeholder="Corrente ou Poupança">
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
 
     <button type="submit" class="btn btn-primary ">Salvar</button>
     <a class="btn btn-danger" href="listaFuncionarios.php " role="button">Sair</a>
@@ -176,7 +175,7 @@ $equipeDAO = new EquipeDAO();
     "rg" => FILTER_SANITIZE_STRING,
     "cpf" =>  FILTER_SANITIZE_STRING,
     "salario" =>  FILTER_SANITIZE_NUMBER_FLOAT,
-    "inputState" => FILTER_SANITIZE_STRING,
+    "inputFuncao" => FILTER_SANITIZE_STRING,
     "datanasc" => FILTER_DEFAULT,
   ];
 
@@ -202,12 +201,12 @@ $equipeDAO = new EquipeDAO();
         $workerArray['datanasc'],
         $_POST['dataadmin'],
         $workerArray['salario'],
-        $workerArray['inputState'],
-        $_POST['obs'],
+        $workerArray['inputFuncao'],
         $_POST['banco'],
         $_POST['agencia'],
         $_POST['conta'],
-        $_POST['tipoconta']
+        $_POST['tipoconta'],
+        $_POST['inputEquipe']
       );
       $funcionarioDAO->create($funcionario);
       echo "<script>Swal.fire('', 'Cadastro realizado com sucesso!', 'success');</script>";
@@ -216,7 +215,7 @@ $equipeDAO = new EquipeDAO();
 
 
 
-
+  require(__DIR__ . '../../templates/rodape.php');
   ?>
 </body>
 

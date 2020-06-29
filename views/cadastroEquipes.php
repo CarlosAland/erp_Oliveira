@@ -13,15 +13,10 @@ require ( __DIR__. '../../templates/cabecalho.php');
 
 <form class="formtop" >
   <div class="form-row">
-      <div class="form-group col-md-8">
+      <div class="form-group col-md-10">
       <label for="nome">Nome</label>
       <input type="text" class="form-control" name="nome">
   </div>
-   <div class="form-check ">
-   <label for="text">Ativo </label> <br>
-  <input class="form-check-input position-static" type="radio" name="Ativo" id="blankRadio1" value="ativo" aria-label="Ativo">
-</div>
-
        <div class="form-group col-md-6">
       <label for="text">Responsável </label>
       <input type="text" class="form-control" id="responsavel">

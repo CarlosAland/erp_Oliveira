@@ -15,11 +15,11 @@ $funcionarioDAO = new FuncionarioDAO();
 
 <body>
 
-
-
 <div>
 <a class="btn btn-danger" href="dashboard.php " role="button">Voltar</a>
 <a class="btn btn-success" href="cadastroFuncionarios.php " role="button">Cadastrar Novo</a>
+
+
 
   <div class="container theme-showcase" role="main">
     <div class="page-header">
@@ -48,7 +48,7 @@ $funcionarioDAO = new FuncionarioDAO();
                     <td>{$funcionarios['TFUNC_CEL']}</td>
                     <td>
                     <a class='btn btn-primary' role='button' href='editarFuncionarios.php?id={$funcionarios['TFUNC_ID']}' >Editar</a>
-                    <a class='btn btn-danger' role='button' href='../recurso/del.php?id={$funcionarios['TFUNC_ID']}' data-confirm=''>Apagar</a>
+                    <a class='btn btn-danger' role='button' href='../recurso/delet/delFuncionario.php?id={$funcionarios['TFUNC_ID']}' data-confirm=''>Apagar</a>
                 
                     </td>
                     </tr>

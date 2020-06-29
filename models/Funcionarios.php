@@ -31,28 +31,8 @@ class Funcionario
     private $dataNow;
     private $status;
 
-    public function __construct(
-        $cod,
-        $nome,
-        $endereco,
-        $bairro,
-        $cidade,
-        $estado,
-        $cep,
-        $tel,
-        $cel,
-        $rg,
-        $cpf,
-        $datanasc,
-        $dataadmissao,
-        $salario,
-        $funcao,
-        $obs,
-        $banco,
-        $agencia,
-        $conta,
-        $tipoconta
-    ) {
+    public function __construct($cod, $nome, $endereco, $bairro, $cidade, $estado, $cep, $tel, $cel, $rg, $cpf, $datanasc, $dataadmissao, $salario, $funcao, $banco, $agencia, $conta, $tipoconta, $equipe)
+    {
         $this->cod = $cod;
         $this->nome = $nome;
         $this->endereco = $endereco;
@@ -68,11 +48,11 @@ class Funcionario
         $this->dataadmissao = $dataadmissao;
         $this->salario = $salario;
         $this->funcao = $funcao;
-        $this->obs = $obs;
         $this->banco = $banco;
         $this->agencia = $agencia;
         $this->conta = $conta;
         $this->tipoconta = $tipoconta;
+        $this->equipe = $equipe;
     }
 
     public function getId()
@@ -84,9 +64,9 @@ class Funcionario
     {
         return $this->cod;
     }
-    public function setCod($cod)
+    public function setCod($valor)
     {
-        $this->cod = $cod;
+        $this->cod = $valor;
     }
 
 
@@ -94,9 +74,9 @@ class Funcionario
     {
         return $this->nome;
     }
-    public function setNome($nome)
+    public function setNome($valor)
     {
-        $this->nome = $nome;
+        $this->nome = $valor;
     }
 
 
@@ -104,9 +84,9 @@ class Funcionario
     {
         return $this->endereco;
     }
-    public function setEndereco($endereco)
+    public function setEndereco($valor)
     {
-        $this->endereco = $endereco;
+        $this->endereco = $valor;
     }
 
 
@@ -114,9 +94,9 @@ class Funcionario
     {
         return $this->bairro;
     }
-    public function setBairro($bairro)
+    public function setBairro($valor)
     {
-        $this->bairro = $bairro;
+        $this->bairro = $valor;
     }
 
 
@@ -124,9 +104,9 @@ class Funcionario
     {
         return $this->cidade;
     }
-    public function setCidade($cidade)
+    public function setCidade($valor)
     {
-        $this->cidade = $cidade;
+        $this->cidade = $valor;
     }
 
 
@@ -134,9 +114,9 @@ class Funcionario
     {
         return $this->estado;
     }
-    public function setEstado($estado)
+    public function setEstado($valor)
     {
-        $this->estado = $estado;
+        $this->estado = $valor;
     }
 
 
@@ -144,9 +124,9 @@ class Funcionario
     {
         return $this->cep;
     }
-    public function setCep($cep)
+    public function setCep($valor)
     {
-        $this->cep = $cep;
+        $this->cep = $valor;
     }
 
 
@@ -154,9 +134,9 @@ class Funcionario
     {
         return $this->tel;
     }
-    public function setTel($tel)
+    public function setTel($valor)
     {
-        $this->tel = $tel;
+        $this->tel = $valor;
     }
 
 
@@ -164,9 +144,9 @@ class Funcionario
     {
         return $this->cel;
     }
-    public function setCel($cel)
+    public function setCel($valor)
     {
-        $this->cel = $cel;
+        $this->cel = $valor;
     }
 
 
@@ -174,9 +154,9 @@ class Funcionario
     {
         return $this->rg;
     }
-    public function setRg($rg)
+    public function setRg($valor)
     {
-        $this->rg = $rg;
+        $this->rg = $valor;
     }
 
 
@@ -184,9 +164,9 @@ class Funcionario
     {
         return $this->cpf;
     }
-    public function setCpf($cpf)
+    public function setCpf($valor)
     {
-        $this->cpf = $cpf;
+        $this->cpf = $valor;
     }
 
 
@@ -194,9 +174,9 @@ class Funcionario
     {
         return $this->datanasc;
     }
-    public function setDataNasc($datanasc)
+    public function setDataNasc($valor)
     {
-        $this->datanasc = $datanasc;
+        $this->datanasc = $valor;
     }
 
 
@@ -204,9 +184,9 @@ class Funcionario
     {
         return $this->dataadmissao;
     }
-    public function setDataAdmissao($dataadmissao)
+    public function setDataAdmissao($valor)
     {
-        $this->dataadmissao = $dataadmissao;
+        $this->dataadmissao = $valor;
     }
 
 
@@ -214,9 +194,9 @@ class Funcionario
     {
         return $this->salario;
     }
-    public function setSalario($salario)
+    public function setSalario($valor)
     {
-        $this->salario = $salario;
+        $this->salario = $valor;
     }
 
 
@@ -224,9 +204,9 @@ class Funcionario
     {
         return $this->funcao;
     }
-    public function setFuncao($funcao)
+    public function setFuncao($valor)
     {
-        $this->funcao = $funcao;
+        $this->funcao = $valor;
     }
 
 
@@ -234,9 +214,9 @@ class Funcionario
     {
         return $this->datademissao;
     }
-    public function setDataDemissao($datademissao)
+    public function setDataDemissao($valor)
     {
-        $this->datademissao = $datademissao;
+        $this->datademissao = $valor;
     }
 
 
@@ -244,9 +224,9 @@ class Funcionario
     {
         return $this->motivodemissao;
     }
-    public function setMotivoDemissao($motivodemissao)
+    public function setMotivoDemissao($valor)
     {
-        $this->motivodemissao = $motivodemissao;
+        $this->motivodemissao = $valor;
     }
 
 
@@ -254,9 +234,9 @@ class Funcionario
     {
         return $this->obs;
     }
-    public function setObs($obs)
+    public function setObs($valor)
     {
-        $this->obs = $obs;
+        $this->obs = $valor;
     }
 
 
@@ -264,9 +244,9 @@ class Funcionario
     {
         return $this->banco;
     }
-    public function setBanco($banco)
+    public function setBanco($valor)
     {
-        $this->banco = $banco;
+        $this->banco = $valor;
     }
 
 
@@ -274,9 +254,9 @@ class Funcionario
     {
         return $this->agencia;
     }
-    public function setAgencia($agencia)
+    public function setAgencia($valor)
     {
-        $this->agencia = $agencia;
+        $this->agencia = $valor;
     }
 
 
@@ -284,9 +264,9 @@ class Funcionario
     {
         return $this->conta;
     }
-    public function setConta($conta)
+    public function setConta($valor)
     {
-        $this->conta = $conta;
+        $this->conta = $valor;
     }
 
 
@@ -294,9 +274,9 @@ class Funcionario
     {
         return $this->tipoconta;
     }
-    public function setTipoConta($tipoconta)
+    public function setTipoConta($valor)
     {
-        $this->tipoconta = $tipoconta;
+        $this->tipoconta = $valor;
     }
 
 
@@ -304,9 +284,9 @@ class Funcionario
     {
         return $this->equipe;
     }
-    public function setEquipe($equipe)
+    public function setEquipe($valor)
     {
-        $this->equipe = $equipe;
+        $this->equipe = $valor;
     }
 
 
@@ -316,12 +296,10 @@ class Funcionario
         return  $this->dataNow;
     }
 
-    public function getStatus()
-    {
+    public function getStatus(){
         return $this->status;
     }
-    public function setStatus($status)
-    {
+    public function setStatus($status){
         $this->status = $status;
     }
 }

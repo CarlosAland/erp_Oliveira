@@ -8,7 +8,7 @@ class Funcao
     {
         return $this->cod;
     }
-    
+
 
     public function getNome()
     {
