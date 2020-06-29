@@ -1,13 +1,7 @@
 <?php
 class Funcao
 {
-    private $cod; // auto incremento
     private $nome;
-
-    public function getCod()
-    {
-        return $this->cod;
-    }
 
 
     public function getNome()

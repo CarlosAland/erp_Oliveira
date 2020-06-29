@@ -2,17 +2,11 @@
 
 class Equipe
 {
-    private $cod;
     private $nome;
     private $responsavel;
     private $vlrservico;
     private $observacao;
     private $status;
-
-    public function getCod()
-    {
-        return $this->cod;
-    }
 
     public function getNome()
     {

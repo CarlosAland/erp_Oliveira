@@ -38,15 +38,33 @@ class FuncaoDAO
     }
   }
 
-  public function upDate(Funcao $funcao)
+  public function readForId($id)
   {
     try {
 
-      $sql = 'UPDATE tfuncao SET TFUNCAO_NOME=? WHERE id=?';
+      $sql = "SELECT * FROM tfuncao WHERE TFUNCAO_ID_PK='$id'";
+      $stmt = Conect::getConn()->prepare($sql);
+      $stmt->execute();
+
+      if ($stmt->rowCount() > 0) {
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+      } else {
+        return [];
+      }
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
+  }
+
+  public function upDate(Funcao $funcao, $id)
+  {
+    try {
+
+      $sql = "UPDATE tfuncao SET TFUNCAO_NOME=? WHERE TFUNCAO_ID_PK='$id'";
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $funcao->getNome());
-      $stmt->bindValue(2, $funcao->getCod());
       $stmt->execute();
     } catch (Exception $e) {
       echo $e->getMessage();
@@ -57,7 +75,7 @@ class FuncaoDAO
   {
     try {
 
-      $sql = 'DELETE FROM tfuncao WHERE id=?';
+      $sql = 'DELETE FROM tfuncao WHERE TFUNCAO_ID_PK=?';
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $id);

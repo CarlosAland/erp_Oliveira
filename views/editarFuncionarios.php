@@ -25,11 +25,20 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 if (!empty($id)) {
   $funcionarios = $funcionarioDAO->readForId($id);
+  $equipe = $equipeDAO->readForId($funcionarios[0]['TFUNC_EQUIPE_ID_FK']);
+  $funcao = $funcaoDAO->readForId($funcionarios[0]['TFUNC_FUNCAO_ID_FK']);
 }
 
 function feedForm($id, $worker, $attr)
 {
   return $id != '' ? $worker[0][$attr] : '';
+}
+function feedBox($id, $model, $attr)
+{
+  if ($id != '') {
+
+    return $model != [] ? $model[0][$attr] : '';
+  }
 }
 
 ?>
@@ -100,8 +109,8 @@ function feedForm($id, $worker, $attr)
       </div>
       <div class="form-group col-md-2">
         <label for="inputFuncao">Função</label>
-        <select id="inputFuncao" class="form-control" name="inputFuncao" required>
-          <option selected></option>
+        <select id="inputFuncao" class="form-control" name="inputFuncao">
+          <option selected><?= feedBox($id, $funcao, 'TFUNCAO_NOME') ?></option>
           <?php
           foreach ($funcaoDAO->read() as $funcoes) {
             echo "<option value='{$funcoes['TFUNCAO_ID_PK']}'> {$funcoes['TFUNCAO_NOME']} </option>";
@@ -123,8 +132,8 @@ function feedForm($id, $worker, $attr)
 
       <div class="form-group col-md-4">
         <label for="inputEquipe">Equipe</label>
-        <select id="inputEquipe" class="form-control" name="inputEquipe" required>
-          <option selected></option>
+        <select id="inputEquipe" class="form-control" name="inputEquipe">
+          <option selected><?= feedBox($id, $equipe, 'TEQUIPE_NOME') ?></option>
           <?php
           foreach ($equipeDAO->read() as $equipe) {
             echo "<option value='{$equipe['TEQUIPE_ID_PK']}'> {$equipe['TEQUIPE_NOME']} </option>";
