@@ -80,6 +80,23 @@
                         <li>
                             <a href="#">Produção Diária</a>
                         </li>
+                        
+                        <li>
+                    <a href="#relatoriosubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">SubRelatórios1</a>
+                    <ul class="collapse list-unstyled" id="relatoriosubmenu1">
+                        <li>
+                            <a href="#">teste1 </a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+
+                        
+                        
                         <li>
                             <a href="#">Page 2</a>
                         </li>
