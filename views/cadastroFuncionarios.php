@@ -36,7 +36,6 @@ $equipeDAO = new EquipeDAO();
         <input type="text" class="form-control" name="nome">
       </div>
     </div>
-    https://github.com/CarlosAland/erp_Oliveira.git
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="text">Endereço </label>
