@@ -46,13 +46,13 @@
                             <a href="listaFuncionarios.php">Funcionários</a>
                         </li>
                         <li>
-                            <a href="cadastroEquipes.php">Equipes</a>
+                            <a href="listaEquipes.php">Equipes</a>
                         </li>
                         <li>
-                            <a href="cadastroLts.php">LT´s</a>
+                            <a href="listaLts.php">LT´s</a>
                         </li>
                         <li>
-                            <a href="cadastroregioes.php">Regiões</a>
+                            <a href="listaregioes.php">Regiões</a>
                         </li>
                         <li>
                             <a href="#">----</a>

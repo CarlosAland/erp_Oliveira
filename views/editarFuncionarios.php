@@ -35,7 +35,7 @@ function feedForm($id, $worker, $attr)
 ?>
 <header class="cabecalho">
   <h1>Oliveira Podas</h1>
-  <h2>Editar de Funcionários</h2>
+  <h2>Editar Funcionários</h2>
 </header>
 
 <body>

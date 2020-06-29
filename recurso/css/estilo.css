@@ -120,40 +120,6 @@ body {
 }
 
 
-/*
-.shiny-button {
-    display: inline-block;
-    text-align: center;
-    border-width: 1px;
-    border-style: solid;
-    text-transform: uppercase;
-    text-decoration: none;
-    line-height: 1.1;
-    font-weight: normal;
-    font-family: sans-serif;
-    color: #FFFFFF;
-    font-size: 12px;
-    background-color: #D10031;
-    background-image: -webkit-linear-gradient(top, #d60032 0%, #e11948 48%, #D10031 49%, #D10031 82%, #ed0038 100%);
-    background-image: -moz-linear-gradient(top, #d60032 0%, #e11948 48%, #D10031 49%, #D10031 82%, #ed0038 100%);
-    background-image: -o-linear-gradient(top, #d60032 0%, #e11948 48%, #D10031 49%, #D10031 82%, #ed0038 100%);
-    background-image: linear-gradient(top, #d60032 0%, #e11948 48%, #D10031 49%, #D10031 82%, #ed0038 100%);
-    border-color: hsl(346, 37%, 41%);
-    -webkit-box-shadow: inset 0 0 1px 1px #ff2e5f, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: inset 0 0 1px 1px #ff2e5f, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-    box-shadow: inset 0 0 1px 1px #ff2e5f, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-    -webkit-text-shadow: 1px 1px 1px #6b0019;
-    -moz-text-shadow: 1px 1px 1px #6b0019;
-    -o-text-shadow: 1px 1px 1px #6b0019;
-    text-shadow: 1px 1px 1px #6b0019;
-    -webkit-border-radius: 31px;
-    -moz-border-radius: 31px;
-    border-radius: 31px;
-    padding: 12px 30px 12px 30px;
-  }
-  
-
-*/
 
 .shiny-button strong {
     letter-spacing: 1px;

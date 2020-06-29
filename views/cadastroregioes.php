@@ -26,7 +26,7 @@ require ( __DIR__. '../../templates/cabecalho.php');
 
 
   <button type="submit" class="btn btn-primary lg">Salvar</button>
-  <a href="dashboard.php" class="btn btn-secondary">Sair</a>
+  <a href="listaregioes.php" class="btn btn-secondary">Sair</a>
 </form>
 
 

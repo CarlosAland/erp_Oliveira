@@ -2,7 +2,6 @@
 require(__DIR__ . '../../templates/cabecalho.php');
 
 require_once(__DIR__ . '/../models/Funcionarios.php');
-
 require_once(__DIR__ . '/../controllers/FuncionarioDAO.php');
 $funcionarioDAO = new FuncionarioDAO();
 
