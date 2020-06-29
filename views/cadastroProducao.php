@@ -67,15 +67,15 @@ $ltDAO = new LtDAO();
       <div class="form-row">
       <div class="form-group col-md-1">
         <label for="text">Vão </label>
-        <input type="text" class="form-control" name="vao">
+        <input type="text" class="form-control" name="vao" require>
       </div>
       <div class="form-group col-md-1">
         <label for="nome">Comprimento</label>
-        <input type="text" class="form-control" name="comp" id ="comp">
+        <input type="text" class="form-control" name="comp" id ="comp" require>
       </div>
       <div class="form-group col-md-1">
         <label for="nome">Largura</label>
-        <input type="text" class="form-control" name="larg" id ="larg" onChange="multiplica()"/>
+        <input type="text" class="form-control" name="larg" id ="larg" onChange="multiplica()"require  >
       </div>
     
       <div class="form-group col-md-2">

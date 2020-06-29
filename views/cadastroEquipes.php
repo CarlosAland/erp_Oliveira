@@ -15,16 +15,16 @@ require ( __DIR__. '../../templates/cabecalho.php');
   <div class="form-row">
       <div class="form-group col-md-10">
       <label for="nome">Nome</label>
-      <input type="text" class="form-control" name="nome">
+      <input type="text" class="form-control" name="nome" require> 
   </div>
        <div class="form-group col-md-6">
       <label for="text">Responsável </label>
-      <input type="text" class="form-control" id="responsavel">
+      <input type="text" class="form-control" id="responsavel" require>
     </div>
 		
     	<div class="form-group col-md-1">
       <label for="nome">Valor Serviço</label>
-      <input type="text" class="form-control" name="valorservico">
+      <input type="text" class="form-control" name="valorservico" require>
 		</div>	
 	<div class="form-group col-md-10">
       <label for="nome">Observação</label>
@@ -33,10 +33,6 @@ require ( __DIR__. '../../templates/cabecalho.php');
 	</div>
 	</div>
 	  
-	
-   
-
-
   <button type="submit" class="btn btn-primary lg">Salvar</button>
   <a href="listaEquipes.php" class="btn btn-secondary">Sair</a>
 </form>

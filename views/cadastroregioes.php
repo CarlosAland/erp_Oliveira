@@ -19,7 +19,7 @@ $regiaoDAO = new RegiaoDAO();
     <div class="form-row">
       <div class="form-group col-md-10">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" name="nome">
+        <input type="text" class="form-control" name="nome" require>
       </div>
 
     </div>
