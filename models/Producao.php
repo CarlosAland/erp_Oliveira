@@ -14,17 +14,18 @@ class Producao
     private $equipe;
     private $vlrservico;
 
-    public function __construct($item, $data, $lt, $vao, $comp, $larg, $fotoantes, $fotodepois, $equipe)
+    public function __construct($item, $data, $lt, $vao, $comp, $larg, $fotoantes, $fotodepois, $equipe,$vlrservico)
     {
         $this->item = $item;
         $this->data = $data;
         $this->lt = $lt;
         $this->vao = $vao;
-        $this->comp = $comp;
-        $this->larg = $larg;
+        $this->comp = number_format($comp, '2', '.', ',');
+        $this->larg = number_format($larg, '2', '.', ',');
         $this->fotoantes = $fotoantes;
         $this->fotodepois = $fotodepois;
         $this->equipe = $equipe;
+        $this->vlrservico = number_format($vlrservico, '2', '.', ',');
     }
 
     public function getItem()

@@ -2,8 +2,13 @@
 require_once(__DIR__ . '../../templates/cabecalho.php');
 require_once(__DIR__ . '../../controllers/LtDAO.php');
 require_once(__DIR__ . '/../controllers/EquipeDAO.php');
+require_once(__DIR__ . '/../controllers/producaoDAO.php');
+require_once(__DIR__ . '/../models/Producao.php');
 
 $ltDAO = new LtDAO();
+$producaoDAO = new ProducaoDAO();
+$equipeDAO = new EquipeDAO();
+
 $img1 = '';
 $img2 = '';
 
@@ -19,7 +24,6 @@ function feedForm($id, $worker, $attr)
   return $id != '' ? $worker[0][$attr] : '';
 }
 
-$eqName = $id != '' ?  $equipe[0]['TEQUIPE_NOME'] : '01';
 ?>
 
 
@@ -52,23 +56,23 @@ $eqName = $id != '' ?  $equipe[0]['TEQUIPE_NOME'] : '01';
 
   <div>
 
-    <form class="formtop" action="./cadastroProducao.php" method="POST" enctype="multipart/form-data" name="formProd">
+    <form class="formtop" action="" method="POST" enctype="multipart/form-data" name="formProd">
       <input type="hidden" name="cid" value="<?= feedForm($id, $equipe, 'TEQUIPE_ID_PK') ?>">
       <div class="form-row">
         <div class="form-group col-md-1">
           <label for="text">Item</label>
-          <input type="text" class="form-control" name="item" require>
+          <input type="text" class="form-control" name="item" required>
         </div>
         <div class="form-group col-md-2">
           <label for="nome">data</label>
-          <input type="date" class="form-control" name="dataprod" require>
+          <input type="date" class="form-control" name="dataprod" required>
         </div>
 
 
 
         <div class="form-group col-md-6">
           <label for="inputRegiao">Lt</label>
-          <select id="inputRegiao" class="form-control" name="inputRegiao" require>
+          <select id="inputRegiao" class="form-control" name="inputRegiao" required>
             <option selected>Escolher...</option>
             <?php
             foreach ($ltDAO->read() as $lts) {
@@ -79,20 +83,20 @@ $eqName = $id != '' ?  $equipe[0]['TEQUIPE_NOME'] : '01';
         <div class="form-row">
           <div class="form-group col-md-1">
             <label for="text">Vão </label>
-            <input type="text" class="form-control" name="vao" require>
+            <input type="text" class="form-control" name="vao" required>
           </div>
           <div class="form-group col-md-1">
             <label for="nome">Comprimento</label>
-            <input type="text" class="form-control" name="comp" id="comp" require>
+            <input type="text" class="form-control" name="comp" id="comp" required>
           </div>
           <div class="form-group col-md-1">
             <label for="nome">Largura</label>
-            <input type="text" class="form-control" name="larg" id="larg" onChange="multiplica()" require>
+            <input type="text" class="form-control" name="larg" id="larg" onChange="multiplica()" required>
           </div>
 
           <div class="form-group col-md-2">
             <label for="nome">Total M2</label>
-            <input type="text" class="form-control" name="result" id="m2" desable>
+            <input type="text" class="form-control" name="result" id="m2" disabled>
           </div>
           <div class="form-group col-md-5">
             <label for="text">Justificativa</label>
@@ -104,18 +108,18 @@ $eqName = $id != '' ?  $equipe[0]['TEQUIPE_NOME'] : '01';
 
         <div class="form-group col-md-5">
           <label for="nome">Imagem Antes</label>
-          <input type="file" class="form-control" name="img_antes" require>
+          <input type="file" class="form-control" name="img_antes" required>
         </div>
 
 
         <div class="form-group col-md-5">
           <label for="nome">Imagem Depois</label>
-          <input type="file" class="form-control" name="img_depois" require>
+          <input type="file" class="form-control" name="img_depois" required>
         </div>
       </div>
 
       <button type="submit" class="btn btn-primary" name="enviar">Salvar</button>
-      <a href="dashboard.php" class="btn btn-secondary">Sair</a>
+      <a href="listaEquipes.php" class="btn btn-secondary">Sair</a>
 
 
     </form>
@@ -144,19 +148,23 @@ $eqName = $id != '' ?  $equipe[0]['TEQUIPE_NOME'] : '01';
 
 
 
+    $eqNameDir = str_replace(' ', '_', $equipe[0]['TEQUIPE_NOME']);
 
-    $FileDir = __DIR__ . "/../uploads/{$eqName}";
+
+    $FileDir = __DIR__ . "/../uploads/{$eqNameDir}";
     if (!file_exists($FileDir) || !is_dir($FileDir)) {
       mkdir($FileDir, 0755);
     }
+
     if (isset($_POST['vao'])) {
 
 
       // SEND PREVIOUS IMAGE
       if (checkImgType('img_antes')) {
         $newFileNamePrev = namePhotor('img_antes', $dataproducao);
-        if (move_uploaded_file($_FILES['img_antes']['tmp_name'], __DIR__ . "/../uploads/{$eqName}/{$newFileNamePrev}")) {
-          $img1 = __DIR__ . "/../uploads/{$eqName}/{$newFileNamePrev}";
+        if (move_uploaded_file($_FILES['img_antes']['tmp_name'], __DIR__ . "/../uploads/{$eqNameDir}/{$newFileNamePrev}")) {
+          $img1 = __DIR__ . "/../uploads/{$eqNameDir}/{$newFileNamePrev}";
+
           echo "<script>Swal.fire('', 'Arquivo enviado com sucesso!', 'success');</script>";
         } else {
           echo "<script>Swal.fire('Ops...', 'Erro Inesperado!', 'error');</script>";
@@ -169,8 +177,8 @@ $eqName = $id != '' ?  $equipe[0]['TEQUIPE_NOME'] : '01';
       // SEND AFTER IMAGE
       if (checkImgType('img_depois')) {
         $newFileNameAfter = namePhotor('img_depois', $dataproducao);
-        if (move_uploaded_file($_FILES['img_depois']['tmp_name'], __DIR__ . "/../uploads/{$eqName}/{$newFileNameAfter}")) {
-          $img2 =  __DIR__ . "/../uploads/{$eqName}/{$newFileNameAfter}";
+        if (move_uploaded_file($_FILES['img_depois']['tmp_name'], __DIR__ . "/../uploads/{$eqNameDir}/{$newFileNameAfter}")) {
+          $img2 =  __DIR__ . "/../uploads/{$eqNameDir}/{$newFileNameAfter}";
           echo "<script>Swal.fire('', 'Arquivo enviado com sucesso!', 'success');</script>";
         } else {
           echo "<script>Swal.fire('Ops...', 'Erro Inesperado!', 'error');</script>";
@@ -181,30 +189,38 @@ $eqName = $id != '' ?  $equipe[0]['TEQUIPE_NOME'] : '01';
     }
 
     //FILTER INPUT FORM
-  $filterForm = [
-    "nome" => FILTER_SANITIZE_STRING,
-    "local" => FILTER_SANITIZE_STRING,
-    "sigla" => FILTER_SANITIZE_STRING,
-    "inputRegiao" => FILTER_SANITIZE_STRING,
-  ];
+    $filterForm = [
+      "item" => FILTER_SANITIZE_STRING,
+      "dataprod" => FILTER_DEFAULT,
+      "inputRegiao" => FILTER_SANITIZE_STRING,
+      "vao" => FILTER_SANITIZE_STRING
+    ];
 
-  //CREATE NEW WORKER
+    //CREATE NEW PRODUCT
+    $cid = filter_input(INPUT_POST, 'cid', FILTER_SANITIZE_NUMBER_INT);
+    $vlrservico = $equipeDAO->read($cid);
 
-  $formArray = filter_input_array(INPUT_POST, $filterForm);
-  if ($formArray) {
-    if (in_array("", $formArray)) {
-      echo "<script>Swal.fire('Oops...', 'Preencha todos os campos corretamente', 'error');</script>";
-    } else {
-      $lts = new Lt(
-        $formArray['nome'],
-        $formArray['local'],
-        $formArray['sigla'],
-        $formArray['inputRegiao']
-      );
-      $ltDAO->create($lts);
-      echo "<script>Swal.fire('', 'Cadastro realizado com sucesso!', 'success');</script>";
+    $formArray = filter_input_array(INPUT_POST, $filterForm);
+    if ($formArray) {
+      if (in_array("", $formArray)) {
+        echo "<script>Swal.fire('Oops...', 'Preencha todos os campos corretamente', 'error');</script>";
+      } else {
+        $producao = new Producao(
+          $formArray['item'],
+          $formArray['dataprod'],
+          $formArray['inputRegiao'],
+          $formArray['vao'],
+          str_replace(',', '.', $_POST['comp']),
+          str_replace(',', '.', $_POST['larg']),
+          $img1,
+          $img1,
+          $cid,
+          $vlrservico[0]['TEQUIPE_VLR_SERV']
+        );
+        $producaoDAO->create($producao);
+        echo "<script>Swal.fire('', 'Cadastro realizado com sucesso!', 'success');</script>";
+      }
     }
-  }
 
     require(__DIR__ . '../../templates/rodape.php');
 
