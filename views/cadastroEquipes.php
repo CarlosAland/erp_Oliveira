@@ -20,16 +20,16 @@ $equipeDAO = new EquipeDAO();
     <div class="form-row">
       <div class="form-group col-md-10">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" name="nome" require>
+        <input type="text" class="form-control" name="nome" required>
       </div>
       <div class="form-group col-md-6">
         <label for="text">Responsável </label>
-        <input type="text" class="form-control" name="responsavel" require>
+        <input type="text" class="form-control" name="responsavel" required>
       </div>
 
       <div class="form-group col-md-1">
         <label for="nome">Valor Serviço</label>
-        <input type="text" class="form-control" name="valorservico" require>
+        <input type="text" class="form-control" name="valorservico" required>
       </div>
       <div class="form-group col-md-10">
         <label for="nome">Observação</label>
@@ -73,5 +73,5 @@ $equipeDAO = new EquipeDAO();
 
 
 
-  require(__DIR__ . '../../templates/rodape.php');
+  required(__DIR__ . '../../templates/rodape.php');
   ?>

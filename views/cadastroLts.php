@@ -20,21 +20,21 @@ $ltDAO = new LtDAO();
   <div class="form-row">
       <div class="form-group col-md-4">
         <label for="text">Nome da LT </label>
-        <input type="text" class="form-control" name="nome" require>
+        <input type="text" class="form-control" name="nome" required>
       </div>
       <div class="form-group col-md-4">
         <label for="nome">Local</label>
-        <input type="text" class="form-control" name="local" require>
+        <input type="text" class="form-control" name="local" required>
       </div>
       <div class="form-group col-md-2">
         <label for="nome">Sigla</label>
-        <input type="text" class="form-control" name="sigla" require>
+        <input type="text" class="form-control" name="sigla" required>
       </div>
    
            
       <div class="form-group col-md-6">
         <label for="inputRegiao">Região</label>
-        <select id="inputRegiao" class="form-control" name="inputRegiao"require>
+        <select id="inputRegiao" class="form-control" name="inputRegiao"required>
           <option selected>Escolher...</option>
           <?php
           foreach ($regiaoDAO->read() as $regioes) {

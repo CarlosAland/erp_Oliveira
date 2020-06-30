@@ -33,13 +33,13 @@ $equipeDAO = new EquipeDAO();
       </div>
       <div class="form-group col-md-10">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" name="nome">
+        <input type="text" class="form-control" name="nome"required>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="text">Endereço </label>
-        <input type="text" class="form-control" name="endereco">
+        <input type="text" class="form-control" name="endereco"required>
       </div>
       <div class="form-group col-md-2">
         <label for="nome">Bairro</label>
@@ -65,16 +65,16 @@ $equipeDAO = new EquipeDAO();
       </div>
       <div class="form-group col-md-1">
         <label for="nome">Celular</label>
-        <input type="text" class="form-control" name="cel">
+        <input type="text" class="form-control" name="cel"required>
       </div>
 
       <div class="form-group col-md-2">
         <label for="nome">RG</label>
-        <input type="text" class="form-control" name="rg">
+        <input type="text" class="form-control" name="rg"required>
       </div>
       <div class="form-group col-md-2">
         <label for="nome">CPF</label>
-        <input type="text" class="form-control" name="cpf">
+        <input type="text" class="form-control" name="cpf"required>
       </div>
       <div class="form-group col-md-1">
         <label for="nome">Salário</label>
