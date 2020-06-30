@@ -3,7 +3,7 @@
 require ( __DIR__. '../../templates/cabecalho.php');
 require ( __DIR__. '../../controllers/LtDAO.php');
 
-$ltDAO = new LtDAO();
+
 
 ?>
 
@@ -38,7 +38,7 @@ $ltDAO = new LtDAO();
 
 <div>
 
-<form  method="POST" enctype="multipart/form-data">
+<form class="formtop"  action="./cadastroPorducao.php" method="POST" enctype="multipart/form-data">
  <div class="form-row">
       <div class="form-group col-md-1">
         <label for="text">Item</label>

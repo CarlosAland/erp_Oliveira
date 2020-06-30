@@ -12,7 +12,9 @@ $funcionarioDAO = new FuncionarioDAO();
 $funcaoDAO = new FuncaoDAO();
 $equipeDAO = new EquipeDAO();
 
-$funcionarios = []
+$funcionarios = [];
+$equipe = [];
+$funcao = [];
 
 ?>
 
@@ -193,13 +195,13 @@ function feedBox($id, $model, $attr)
               </div>
             </div>
           </div>
-          </div>
-
-
         </div>
-        <button type="submit" class="btn btn-primary " data-confirm=''>Salvar</button>
-        <a class="btn btn-danger" href="listafuncionarios.php " role="button">Sair</a>
+
+
       </div>
+      <button type="submit" class="btn btn-primary " data-confirm=''>Salvar</button>
+      <a class="btn btn-danger" href="listafuncionarios.php " role="button">Sair</a>
+    </div>
 
   </form>
 
@@ -217,7 +219,6 @@ function feedBox($id, $model, $attr)
     "cel" =>  FILTER_SANITIZE_STRING,
     "rg" => FILTER_SANITIZE_STRING,
     "cpf" =>  FILTER_SANITIZE_STRING,
-    "salario" =>  FILTER_SANITIZE_NUMBER_FLOAT,
     "inputFuncao" => FILTER_SANITIZE_STRING,
     "datanasc" => FILTER_DEFAULT,
   ];
@@ -244,7 +245,7 @@ function feedBox($id, $model, $attr)
         $workerArray['cpf'],
         $workerArray['datanasc'],
         $_POST['dataadmin'],
-        $workerArray['salario'],
+        str_replace(',', '.', $_POST['salario']),
         $workerArray['inputFuncao'],
         $_POST['banco'],
         $_POST['agencia'],
@@ -259,9 +260,6 @@ function feedBox($id, $model, $attr)
     }
   }
 
-
+  require_once(__DIR__ . '/../templates/rodape.php');
 
   ?>
-</body>
-
-</html>
