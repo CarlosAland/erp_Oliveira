@@ -50,7 +50,7 @@ $equipeDAO = new EquipeDAO();
                     <td>
                     <a class='btn btn-primary btn-sm' role='button' href='editaRequipes.php?id={$equipe['TEQUIPE_ID_PK']}' >Editar</a>
                     <a class='btn btn-danger btn-sm' role='button' href='../recurso/delet/delEquipe.php?id={$equipe['TEQUIPE_ID_PK']}' data-confirm=''>Apagar</a>
-                    <a class='btn btn-info btn-sm' role='button' href='#' >Lançar Produção</a>
+                    <a class='btn btn-info btn-sm' role='button' href='cadastroProducao.php?id={$equipe['TEQUIPE_ID_PK']}' >Lançar Produção</a>
                     </td>
                     </tr>
                     ";

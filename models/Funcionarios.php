@@ -46,7 +46,7 @@ class Funcionario
         $this->cpf = $cpf;
         $this->datanasc = $datanasc;
         $this->dataadmissao = $dataadmissao;
-        $this->salario = $salario;
+        $this->salario = number_format($salario, '2', '.', ',');;
         $this->funcao = $funcao;
         $this->banco = $banco;
         $this->agencia = $agencia;
@@ -296,10 +296,12 @@ class Funcionario
         return  $this->dataNow;
     }
 
-    public function getStatus(){
+    public function getStatus()
+    {
         return $this->status;
     }
-    public function setStatus($status){
+    public function setStatus($status)
+    {
         $this->status = $status;
     }
 }
