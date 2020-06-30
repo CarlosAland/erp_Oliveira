@@ -15,7 +15,7 @@ $regiaoDAO = new RegiaoDAO();
 
 <body>
 
-  <form class="formtop" action="./cadastroregioes.php" method="POST" enctype="multipart/form-data" id="editEqp">
+  <form class="formtop" action="./cadastroRegioes.php" method="POST" enctype="multipart/form-data" id="editReg">
     <div class="form-row">
       <div class="form-group col-md-10">
         <label for="nome">Nome</label>
@@ -28,7 +28,7 @@ $regiaoDAO = new RegiaoDAO();
 
 
     <button type="submit" class="btn btn-primary lg">Salvar</button>
-    <a href="listaregioes.php" class="btn btn-secondary">Sair</a>
+    <a href="listaRegioes.php" class="btn btn-secondary">Sair</a>
   </form>
 
   <!--PHP CODE -->

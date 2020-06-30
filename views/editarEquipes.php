@@ -75,14 +75,14 @@ function feedForm($id, $worker, $attr)
 
   //CREATE NEW WORKER
 
-  $workerArray = filter_input_array(INPUT_POST, $filterForm);
-  if ($workerArray) {
-    if (in_array("", $workerArray)) {
+  $formArray = filter_input_array(INPUT_POST, $filterForm);
+  if ($formArray) {
+    if (in_array("", $formArray)) {
       echo "<script>Swal.fire('Oops...', 'Preencha todos os campos corretamente', 'error');</script>";
     } else {
       $eqp = new Equipe(
-        $workerArray['nome'],
-        $workerArray['responsavel'],
+        $formArray['nome'],
+        $formArray['responsavel'],
         str_replace(',', '.', $_POST['valorservico']),
         $_POST['observacao']
 

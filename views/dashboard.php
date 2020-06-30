@@ -52,7 +52,7 @@
                             <a href="listaLts.php">LT´s</a>
                         </li>
                         <li>
-                            <a href="listaregioes.php">Regiões</a>
+                            <a href="listaRegioes.php">Regiões</a>
                         </li>
                         <li>
                             <a href="#">----</a>

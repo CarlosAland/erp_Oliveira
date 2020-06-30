@@ -8,10 +8,14 @@ class EquipeDAO
   {
 
     try {
-      $sql = 'INSERT INTO tequipe(TEQUIPE_NOME) VALUE (?)';
+      $sql = 'INSERT INTO tequipe(TEQUIPE_NOME, TEQUIPE_RESP, TEQUIPE_VLR_SERV, TEQUIPE_OBS)
+       VALUE (?,?,?,?)';
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $equipe->getNome());
+      $stmt->bindValue(2, $equipe->getResponsalve());
+      $stmt->bindValue(3, $equipe->getVlrservico());
+      $stmt->bindValue(4, $equipe->getObservacao());
 
       $stmt->execute();
     } catch (Exception $e) {
