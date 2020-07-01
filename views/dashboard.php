@@ -64,7 +64,7 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Lançamentos</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="cadastroProducao.php">Produção Diária</a>
+                            <a href="listaEquipesProducao.php">Produção Diária</a>
                         </li>
                         <li>
                             <a href="#">Page 2</a>

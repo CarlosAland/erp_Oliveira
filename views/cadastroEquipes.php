@@ -73,5 +73,5 @@ $equipeDAO = new EquipeDAO();
 
 
 
-  required(__DIR__ . '../../templates/rodape.php');
+  require(__DIR__ . '../../templates/rodape.php');
   ?>
