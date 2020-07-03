@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="../recurso/css/estilo.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
 
     <!--SweetAlert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
