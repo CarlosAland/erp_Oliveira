@@ -18,10 +18,20 @@ $equipeDAO = new EquipeDAO();
 
   <form class="formtop" action="./cadastroEquipes.php" method="POST" enctype="multipart/form-data">
     <div class="form-row">
-      <div class="form-group col-md-10">
+      <div class="form-group col-md-9">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome" required>
-      </div>
+        </div>
+      
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="-1">
+          <label class="custom-control-label" for="customRadio1">Ativo </label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="0">
+          <label class="custom-control-label" for="customRadio2">Inativo </label>
+        </div>
+      
       <div class="form-group col-md-6">
         <label for="text">Responsável </label>
         <input type="text" class="form-control" name="responsavel" required>
@@ -62,9 +72,13 @@ $equipeDAO = new EquipeDAO();
         $formArray['nome'],
         $formArray['responsavel'],
         str_replace(',', '.', $_POST['valorservico']),
-        $_POST['observacao']
-
+        $_POST['observacao'],
+        $_POST['status']
+        
       );
+
+      
+
       $equipeDAO->create($eqp);
 
       echo "<script>Swal.fire('', 'Cadastro realizado com sucesso!', 'success');</script>";

@@ -44,6 +44,15 @@ function feedForm($id, $worker, $attr)
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome" value="<?= feedForm($id, $equipe, 'TEQUIPE_NOME') ?>">
       </div>
+      <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="<?= feedForm($id, $equipe, 'TEQUIPE_STATUS') ?>">
+          <label class="custom-control-label" for="customRadio1">Ativo </label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="<?= feedForm($id, $equipe, 'TEQUIPE_STATUS') ?>">
+          <label class="custom-control-label" for="customRadio2">Inativo </label>
+        </div>
+   
       <div class="form-group col-md-6">
         <label for="text">Responsável </label>
         <input type="text" class="form-control" name="responsavel" value="<?= feedForm($id, $equipe, 'TEQUIPE_RESP') ?>">
@@ -57,6 +66,7 @@ function feedForm($id, $worker, $attr)
         <label for="nome">Observação</label>
         <input type="text" class="form-control" name="observacao" value="<?= feedForm($id, $equipe, 'TEQUIPE_OBS') ?>">
       </div>
+  
     </div>
     </div>
 
@@ -84,7 +94,8 @@ function feedForm($id, $worker, $attr)
         $formArray['nome'],
         $formArray['responsavel'],
         str_replace(',', '.', $_POST['valorservico']),
-        $_POST['observacao']
+        $_POST['observacao'],
+        $_POST['status']
 
       );
       $cid = filter_input(INPUT_POST, 'cid', FILTER_SANITIZE_NUMBER_INT);

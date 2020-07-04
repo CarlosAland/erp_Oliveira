@@ -8,12 +8,13 @@ class Equipe
     private $observacao;
     private $status;
 
-    public function __construct($nome, $responsavel, $vlrservico, $observacao)
+    public function __construct($nome, $responsavel, $vlrservico, $observacao, $status)
     {
         $this->nome = $nome;
         $this->responsavel = $responsavel;
         $this->vlrservico = number_format($vlrservico, '2', '.', ',');
         $this->observacao = $observacao;
+        $this->status = $status;
     }
 
     public function getNome()
