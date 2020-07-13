@@ -21,7 +21,7 @@
   
     <header class="cabecalho">
         <h1>Oliveira Podas</h1>
-        <h2>Sistema Gerenciamento</h2> 
+        <h2>Sistema de Gerenciamento</h2> 
     </header>
     
 </head>
@@ -43,20 +43,65 @@
                             <a href="cadastroUsuarios.php">Usuários</a>
                         </li>
                         <li>
-                            <a href="listaFuncionarios.php">Funcionários</a>
+                            
+                    <a href="#submenufun" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Funcionários</a>
+                    <ul class="collapse list-unstyled" id="submenufun">
+                        <li>
+                        <a href="listaFuncionarios.php"> Todos</a>
                         </li>
                         <li>
-                            <a href="listaEquipes.php">Equipes</a>
+                        <a href="listaFuncionariosAtivos.php"> Ativos</a>
                         </li>
                         <li>
-                            <a href="listaLts.php">LT´s</a>
+                        <a href="listaFuncionariosInativos.php"> Inativos</a>
+                        </li>
+                    </ul>    
                         </li>
                         <li>
-                            <a href="listaRegioes.php">Regiões</a>
+                           
+
+                    <a href="#submenuequipe" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Equipes</a>
+                    <ul class="collapse list-unstyled" id="submenuequipe">
+                        <li>
+                        <a href="listaEquipes.php"> Todas</a>
                         </li>
                         <li>
-                            <a href="#">----</a>
+                        <a href="listaEquipesAtivas.php"> Ativas</a>
                         </li>
+                        <li>
+                        <a href="listaEquipesInativas.php"> Inativas</a>
+                        </li>
+                    </ul>
+                        </li>
+                        <li>
+                    <a href="#submenult" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Lts</a>
+                    <ul class="collapse list-unstyled" id="submenult">
+                        <li>
+                        <a href="listalts.php"> Todas</a>
+                        </li>
+                        <li>
+                        <a href="listaLtsAtivas.php"> Ativas</a>
+                        </li>
+                        <li>
+                        <a href="listaLtsInativas.php"> Inativas</a>
+                        </li>
+                    </ul>    
+                        </li>
+                        <li>
+                    <a href="#submenuregiao" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Regiões</a>
+                    <ul class="collapse list-unstyled" id="submenuregiao">
+                        <li>
+                        <a href="listaRegioes.php"> Todas</a>
+                        </li>
+                        <li>
+                        <a href="listaRegioesAtivas.php"> Ativas</a>
+                        </li>
+                        <li>
+                        <a href="listaRegioesInativas.php"> Inativas</a>
+                        </li>
+                    </ul>        
+                        </li>
+                       
                     </ul>
                 </li>
                
@@ -108,10 +153,7 @@
 
 
                     
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+               
             </ul>
 
             
@@ -123,14 +165,11 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <button type="button" id="sidebarCollapse" class="btn btn-success">
                         <i class="fas fa-align-left"></i>
                         <span>Menu</span>
                     </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-
+                  
                    
                 </div>
             </nav>

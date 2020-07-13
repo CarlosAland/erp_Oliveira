@@ -7,6 +7,8 @@ $equipeDAO = new EquipeDAO();
 
 $equipe = []
 
+
+
 ?>
 <!--PHP CODE -->
 
@@ -25,8 +27,6 @@ function feedForm($id, $worker, $attr)
 }
 
 ?>
-
-
 
 <header class="cabecalho">
   <h1>Oliveira Podas</h1>

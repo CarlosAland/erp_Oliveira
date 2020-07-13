@@ -39,7 +39,7 @@ $equipeDAO = new EquipeDAO();
             </thead>
             <tbody>
               <?php
-              foreach ($equipeDAO->read() as $equipe) {
+              foreach ($equipeDAO->readEnable() as $equipe) {
                 //  var_dump($equipe);
                 echo "
                     <tr>

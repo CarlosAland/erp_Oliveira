@@ -47,7 +47,6 @@ $funcionarioDAO = new FuncionarioDAO();
                     <td>{$funcionarios['TFUNC_CEL']}</td>
                     <td>
                     <a class='btn btn-primary' role='button' href='editarFuncionarios.php?id={$funcionarios['TFUNC_ID']}' >Editar</a>
-                    <a class='btn btn-danger' role='button' href='../recurso/delet/delFuncionario.php?id={$funcionarios['TFUNC_ID']}' data-confirm=''>Apagar</a>
                 
                     </td>
                     </tr>

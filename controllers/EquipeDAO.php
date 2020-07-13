@@ -8,14 +8,15 @@ class EquipeDAO
   {
 
     try {
-      $sql = 'INSERT INTO tequipe(TEQUIPE_NOME, TEQUIPE_RESP, TEQUIPE_VLR_SERV, TEQUIPE_OBS)
-       VALUE (?,?,?,?)';
+      $sql = 'INSERT INTO tequipe(TEQUIPE_NOME, TEQUIPE_RESP, TEQUIPE_VLR_SERV, TEQUIPE_OBS, TEQUIPE_STATUS)
+       VALUE (?,?,?,?,?)';
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $equipe->getNome());
       $stmt->bindValue(2, $equipe->getResponsalve());
       $stmt->bindValue(3, $equipe->getVlrservico());
       $stmt->bindValue(4, $equipe->getObservacao());
+      $stmt->bindValue(5, $equipe->getStatus());
 
       $stmt->execute();
     } catch (Exception $e) {
@@ -93,4 +94,46 @@ class EquipeDAO
       echo $e->getMessage();
     }
   }
+// Função filta inativos
+  public function readDisable()
+  {
+    try {
+
+      $sql = 'SELECT * FROM tequipe WHERE  TEQUIPE_STATUS="0"';
+      $stmt = Conect::getConn()->prepare($sql);
+      $stmt->execute();
+
+      if ($stmt->rowCount() > 0) {
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+      } else {
+        return [];
+      }
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
+  }
+
+// Função filta Ativos
+public function readEnable()
+{
+  try {
+
+    $sql = 'SELECT * FROM tequipe WHERE  TEQUIPE_STATUS="1"';
+    $stmt = Conect::getConn()->prepare($sql);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+      $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+      return $result;
+    } else {
+      return [];
+    }
+  } catch (Exception $e) {
+    echo $e->getMessage();
+  }
+}
+
+
+
 }

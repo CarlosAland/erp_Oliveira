@@ -21,7 +21,14 @@ $regiaoDAO = new RegiaoDAO();
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome" required>
       </div>
-
+      <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="-1">
+          <label class="custom-control-label" for="customRadio1">Ativo </label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="0">
+          <label class="custom-control-label" for="customRadio2">Inativo </label>
+        </div>
     </div>
     </div>
 

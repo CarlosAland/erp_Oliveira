@@ -9,7 +9,7 @@ $regiaoDAO = new RegiaoDAO();
 ?>
 <header class="cabecalho">
   <h1>Oliveira Podas</h1>
-  <h2>Listagem de Regiões</h2>
+  <h2>Listagem de Regiões - Todas </h2>
 </header>
 
 <body>
@@ -43,7 +43,6 @@ $regiaoDAO = new RegiaoDAO();
                     <td>{$regioes['TREGIAO_NOME']}</td>
                     <td>
                     <a class='btn btn-primary' role='button' href='editarRegioes.php?id={$regioes['TREGIAO_ID_PK']}' >Editar</a>
-                    <a class='btn btn-danger' role='button' href='../recurso/delet/delRegiao.php?id={$regioes['TREGIAO_ID_PK']}' data-confirm=''>Apagar</a>
                 
                     </td>
                     </tr>

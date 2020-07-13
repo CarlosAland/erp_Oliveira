@@ -49,7 +49,6 @@ $equipeDAO = new EquipeDAO();
                     <td>{$equipe['TEQUIPE_VLR_SERV']}</td>
                     <td>
                     <a class='btn btn-primary btn-sm' role='button' href='editaRequipes.php?id={$equipe['TEQUIPE_ID_PK']}' >Editar</a>
-                    <a class='btn btn-danger btn-sm' role='button' href='../recurso/delet/delEquipe.php?id={$equipe['TEQUIPE_ID_PK']}' data-confirm=''>Apagar</a>
                     </td>
                     </tr>
                     ";

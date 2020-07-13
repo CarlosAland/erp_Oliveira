@@ -63,6 +63,15 @@ function feedBox($id, $model, $attr)
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome" value="<?= feedForm($id, $funcionarios, 'TFUNC_NOME') ?>">
       </div>
+      <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="<?= feedForm($id, $funcionarios, 'TFUNC_STATUS') ?>">
+          <label class="custom-control-label" for="customRadio1">Ativo </label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="<?= feedForm($id, $funcionarios, 'TFUNC_STATUS') ?>">
+          <label class="custom-control-label" for="customRadio2">Inativo </label>
+        </div>
+
     </div>
 
     <div class="form-row">
@@ -196,6 +205,7 @@ function feedBox($id, $model, $attr)
             </div>
           </div>
         </div>
+        </div>
 
 
       </div>
@@ -251,7 +261,8 @@ function feedBox($id, $model, $attr)
         $_POST['agencia'],
         $_POST['conta'],
         $_POST['tipoconta'],
-        $_POST['inputEquipe']
+        $_POST['inputEquipe'],
+        $_POST['status']
       );
       $cid = filter_input(INPUT_POST, 'cid', FILTER_SANITIZE_NUMBER_INT);
       $funcionarioDAO->upDate($fn, $cid);

@@ -34,7 +34,7 @@ class FuncionarioDAO
       $stmt->bindValue(15, $funcionario->getMotivoDemissao());
       $stmt->bindValue(16, $funcionario->getSalario());
       $stmt->bindValue(17, $funcionario->getObs());
-      $stmt->bindValue(18, true);
+      $stmt->bindValue(18, $funcionario->getStatus());
       $stmt->bindValue(19, $funcionario->getFuncao());
       $stmt->bindValue(20, $funcionario->getDate());
       $stmt->bindValue(21, $funcionario->getEquipe());
@@ -52,7 +52,7 @@ class FuncionarioDAO
   {
     try {
 
-      $sql = 'SELECT * FROM tfuncionario';
+      $sql = 'SELECT * FROM tfuncionario  ORDER BY TFUNC_NOME';
       $stmt = Conect::getConn()->prepare($sql);
       $stmt->execute();
 
@@ -114,7 +114,7 @@ class FuncionarioDAO
       $stmt->bindValue(14, $funcionario->getDataDemissao());
       $stmt->bindValue(15, $funcionario->getMotivoDemissao());
       $stmt->bindValue(16, $funcionario->getSalario());
-      $stmt->bindValue(17, true);
+      $stmt->bindValue(17, $funcionario->getStatus());
       $stmt->bindValue(18, $funcionario->getFuncao());
       $stmt->bindValue(19, $funcionario->getDate());
       $stmt->bindValue(20, $funcionario->getEquipe());
@@ -141,4 +141,45 @@ class FuncionarioDAO
       echo $e->getMessage();
     }
   }
+// funcao lista inativos
+  public function readDisable()
+  {
+    try {
+
+      $sql = 'SELECT * FROM tfuncionario WHERE TFUNC_STATUS ="0" ORDER BY TFUNC_NOME';
+      $stmt = Conect::getConn()->prepare($sql);
+      $stmt->execute();
+
+      if ($stmt->rowCount() > 0) {
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+      } else {
+        return [];
+      }
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
+  }
+
+// funcao lista Ativos
+public function readEnable()
+{
+  try {
+
+    $sql = 'SELECT * FROM tfuncionario WHERE TFUNC_STATUS ="1"  ORDER BY TFUNC_NOME';
+    $stmt = Conect::getConn()->prepare($sql);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+      $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+      return $result;
+    } else {
+      return [];
+    }
+  } catch (Exception $e) {
+    echo $e->getMessage();
+  }
+}
+
+
 }

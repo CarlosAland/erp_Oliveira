@@ -57,6 +57,14 @@ function feedRegion($id, $model, $attr)
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome" value="<?= feedForm($id, $lt, 'TLT_NOME') ?>">
       </div>
+      <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="<?= feedForm($id, $lt, 'TLT_STATUS') ?>">
+          <label class="custom-control-label" for="customRadio1">Ativo </label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="<?= feedForm($id, $lt, 'TLT_STATUS') ?>">
+          <label class="custom-control-label" for="customRadio2">Inativo </label>
+        </div>
       <div class="form-group col-md-6">
         <label for="text">Local </label>
         <input type="text" class="form-control" name="local" value="<?= feedForm($id, $lt, 'TLT_LOCAL') ?>">
@@ -105,7 +113,8 @@ function feedRegion($id, $model, $attr)
         $formArray['nome'],
         $formArray['local'],
         $formArray['sigla'],
-        $formArray['inputRegiao']
+        $formArray['inputRegiao'],
+        $_POST['status']
       );
       $cid = filter_input(INPUT_POST, 'cid', FILTER_SANITIZE_NUMBER_INT);
       $ltDAO->upDate($lts, $cid);

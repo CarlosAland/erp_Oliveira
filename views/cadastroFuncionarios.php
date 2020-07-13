@@ -35,6 +35,14 @@ $equipeDAO = new EquipeDAO();
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome"required>
       </div>
+      <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="1">
+          <label class="custom-control-label" for="customRadio1">Ativo </label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="0">
+          <label class="custom-control-label" for="customRadio2">Inativo </label>
+        </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
@@ -89,8 +97,6 @@ $equipeDAO = new EquipeDAO();
             echo "<option value='{$funcoes['TFUNCAO_ID_PK']}'> {$funcoes['TFUNCAO_NOME']} </option>";
           } ?>
         </select>
-
-
       </div>
       <div class="form-group col-md-2">
         <label for="nome">Data Nascimento</label>
@@ -205,10 +211,15 @@ $equipeDAO = new EquipeDAO();
         $_POST['agencia'],
         $_POST['conta'],
         $_POST['tipoconta'],
-        $_POST['inputEquipe']
+        $_POST['inputEquipe'],
+        $_POST['status']
+        
       );
-      $funcionarioDAO->create($funcionario);
-      echo "<script>Swal.fire('', 'Cadastro realizado com sucesso!', 'success');</script>";
+
+
+      
+     $funcionarioDAO->create($funcionario);
+     echo "<script>Swal.fire('', 'Cadastro realizado com sucesso!', 'success');</script>";
     }
   }
 

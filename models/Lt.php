@@ -7,13 +7,15 @@ class Lt
     private $local;
     private $sigla;
     private $regiao; // recebe o id da regiao que pertence
+    private $status; // define o status ativo ou inativo
 
-    public function __construct($nome, $local, $sigla, $regiao)
+    public function __construct($nome, $local, $sigla, $regiao, $status)
     {
         $this->nome = $nome;
         $this->local = $local;
         $this->sigla = $sigla;
         $this->regiao = $regiao;
+        $this->status = $status;
     }
 
     public function getId()
@@ -58,5 +60,15 @@ class Lt
     public function setRegiao($regiao)
     {
         $this->regiao = $regiao;
+    }
+    
+    
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    public function setStatus($status)
+    {
+        $this->status = $status;
     }
 }

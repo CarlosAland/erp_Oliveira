@@ -24,7 +24,7 @@ $equipeDAO = new EquipeDAO();
         </div>
       
         <div class="custom-control custom-radio">
-          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="-1">
+          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="1">
           <label class="custom-control-label" for="customRadio1">Ativo </label>
         </div>
         <div class="custom-control custom-radio">

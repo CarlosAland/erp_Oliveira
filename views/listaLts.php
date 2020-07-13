@@ -47,7 +47,7 @@ $ltDAO = new LtDAO();
                     <td>{$lts['TLT_SIGLA']}</td>
                     <td>
                     <a class='btn btn-primary' role='button' href='editarlts.php?id={$lts['TLT_ID_PK']}' >Editar</a>
-                    <a class='btn btn-danger' role='button' href='../recurso/delet/delLt.php?id={$lts['TLT_ID_PK']}' data-confirm=''>Apagar</a>
+                   
                 
                     </td>
                     </tr>

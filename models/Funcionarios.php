@@ -31,7 +31,7 @@ class Funcionario
     private $dataNow;
     private $status;
 
-    public function __construct($cod, $nome, $endereco, $bairro, $cidade, $estado, $cep, $tel, $cel, $rg, $cpf, $datanasc, $dataadmissao, $salario, $funcao, $banco, $agencia, $conta, $tipoconta, $equipe)
+    public function __construct($cod, $nome, $endereco, $bairro, $cidade, $estado, $cep, $tel, $cel, $rg, $cpf, $datanasc, $dataadmissao, $salario, $funcao, $banco, $agencia, $conta, $tipoconta, $equipe, $status)
     {
         $this->cod = $cod;
         $this->nome = $nome;
@@ -53,6 +53,7 @@ class Funcionario
         $this->conta = $conta;
         $this->tipoconta = $tipoconta;
         $this->equipe = $equipe;
+        $this->status = $status;    
     }
 
     public function getId()
