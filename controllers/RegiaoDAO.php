@@ -8,7 +8,7 @@ class RegiaoDAO
   {
 
     try {
-      $sql = 'INSERT INTO tregiao (TREGIAO_NOME) VALUE (?,?)';
+      $sql = 'INSERT INTO tregiao (TREGIAO_NOME, TREGIAO_STATUS) VALUE (?,?)';
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $regiao->getNome());

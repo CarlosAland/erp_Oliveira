@@ -2,9 +2,9 @@
 class Regiao{
     private $cod; // auto incremento
     private $nome;
-    private $status;
+    private $status; // define ativo ou inativo
 
-    public function __construct($nome,$status)
+    public function __construct($nome, $status)
     {
         $this->nome = $nome;
         $this->status = $status;
@@ -23,6 +23,7 @@ class Regiao{
     {
        $this->nome = $nome;
     }
+    
     public function getStatus()
     {
         return $this->status;
@@ -31,7 +32,5 @@ class Regiao{
     {
         $this->status = $status;
     }
-
-
 
 }

@@ -1,7 +1,7 @@
 <?php
 require(__DIR__ . '../../templates/cabecalho.php');
-require_once(__DIR__ . '/../controllers/RegiaoDAO.php');
-require_once(__DIR__ . '/../models/Regiao.php');
+require_once(__DIR__ . '../../controllers/RegiaoDAO.php');
+require_once(__DIR__ . '../../models/Regiao.php');
 
 $regiaoDAO = new RegiaoDAO();
 
@@ -22,7 +22,7 @@ $regiaoDAO = new RegiaoDAO();
         <input type="text" class="form-control" name="nome" required>
       </div>
       <div class="custom-control custom-radio">
-          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="-1">
+          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="1">
           <label class="custom-control-label" for="customRadio1">Ativo </label>
         </div>
         <div class="custom-control custom-radio">
@@ -50,7 +50,8 @@ $regiaoDAO = new RegiaoDAO();
       echo "<script>Swal.fire('Oops...', 'Preencha todos os campos corretamente', 'error');</script>";
     } else {
       $region = new Regiao(
-        $nameRegion
+        $nameRegion,
+        $_POST['status']
       );
       $regiaoDAO->create($region);
       echo "<script>Swal.fire('', 'Cadastro realizado com sucesso!', 'success');</script>";

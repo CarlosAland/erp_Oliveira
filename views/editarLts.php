@@ -1,5 +1,5 @@
 <?php
-require(__DIR__ . '../../templates/cabecalho.php');
+require(__DIR__ . '/../templates/cabecalho.php');
 
 require_once(__DIR__ . '/../models/Lt.php');
 require_once(__DIR__ . '/../controllers/LtDAO.php');
@@ -11,10 +11,9 @@ $ltDAO = new LtDAO();
 $lt = [];
 $regiao = [];
 
-?>
-<!--PHP CODE -->
+//PHP CODE 
 
-<?php
+
 
 //READ FOR Lt
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
@@ -43,7 +42,7 @@ function feedRegion($id, $model, $attr)
 
 <header class="cabecalho">
   <h1>Oliveira Podas</h1>
-  <h2>Editar LT's</h2>
+  <h2>Editar Linhas de Transmissão</h2>
 </header>
 
 
@@ -119,7 +118,7 @@ function feedRegion($id, $model, $attr)
       $cid = filter_input(INPUT_POST, 'cid', FILTER_SANITIZE_NUMBER_INT);
       $ltDAO->upDate($lts, $cid);
 
-      echo "<script>Swal.fire('', 'Cadastro atualizado com sucesso!', 'success');</script>";
+     // echo "<script>Swal.fire('', 'Cadastro atualizado com sucesso!', 'success');</script>";
     }
   }
 

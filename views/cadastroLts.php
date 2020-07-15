@@ -22,7 +22,8 @@ $ltDAO = new LtDAO();
         <label for="text">Nome da LT </label>
         <input type="text" class="form-control" name="nome" required>
       </div>
-      <div class="form-group col-md-4">
+      
+          <div class="form-group col-md-4">
         <label for="nome">Local</label>
         <input type="text" class="form-control" name="local" required>
       </div>
@@ -31,6 +32,16 @@ $ltDAO = new LtDAO();
         <input type="text" class="form-control" name="sigla" required>
       </div>
    
+   
+
+      <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="1">
+          <label class="custom-control-label" for="customRadio1">Ativo </label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="0">
+          <label class="custom-control-label" for="customRadio2">Inativo </label>
+        </div>
            
       <div class="form-group col-md-6">
         <label for="inputRegiao">Região</label>
@@ -44,6 +55,7 @@ $ltDAO = new LtDAO();
       </div>
     </div>
     </div>
+    
 
 
     <button type="submit" class="btn btn-primary lg">Salvar</button>
@@ -73,7 +85,8 @@ $ltDAO = new LtDAO();
         $formArray['nome'],
         $formArray['local'],
         $formArray['sigla'],
-        $formArray['inputRegiao']
+        $formArray['inputRegiao'],
+        $_POST['status']
       );
       $ltDAO->create($lts);
       echo "<script>Swal.fire('', 'Cadastro realizado com sucesso!', 'success');</script>";

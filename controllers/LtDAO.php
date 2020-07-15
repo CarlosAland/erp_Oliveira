@@ -67,7 +67,7 @@ class LtDAO
     try {
 
       $sql = "UPDATE tlt SET TLT_NOME=?, TLT_LOCAL=?, TLT_SIGLA=?,
-      TLT_REGIAO_FK=? WHERE TLT_ID_PK='$id'";
+      TLT_REGIAO_FK=? TLT_STATUS=? WHERE TLT_ID_PK='$id'";
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $lt->getNome());

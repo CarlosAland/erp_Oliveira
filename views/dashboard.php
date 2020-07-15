@@ -77,7 +77,7 @@
                     <a href="#submenult" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Lts</a>
                     <ul class="collapse list-unstyled" id="submenult">
                         <li>
-                        <a href="listalts.php"> Todas</a>
+                        <a href="listaLts.php"> Todas</a>
                         </li>
                         <li>
                         <a href="listaLtsAtivas.php"> Ativas</a>
