@@ -27,11 +27,11 @@ $equipeDAO = new EquipeDAO();
 
   <form class="formtop" action="./cadastroFuncionarios.php" method="POST" enctype="multipart/form-data">
     <div class="form-row">
-      <div class="form-group col-md-1">
+      <div class="form-group col-md-2">
         <label for="text">Codigo </label>
         <input type="text" class="form-control" name="cod">
       </div>
-      <div class="form-group col-md-10">
+      <div class="form-group col-md-8">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome"required>
       </div>
@@ -59,7 +59,7 @@ $equipeDAO = new EquipeDAO();
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-2">
         <label for="text">Cidade </label>
         <input type="codigo" class="form-control" name="cidade">
       </div>
@@ -67,11 +67,11 @@ $equipeDAO = new EquipeDAO();
         <label for="nome">Estado</label>
         <input type="text" class="form-control" name="estado">
       </div>
-      <div class="form-group col-md-1">
+      <div class="form-group col-md-2">
         <label for="nome">Telefone</label>
         <input type="text" class="form-control" name="tel">
       </div>
-      <div class="form-group col-md-1">
+      <div class="form-group col-md-2">
         <label for="nome">Celular</label>
         <input type="text" class="form-control" name="cel"required>
       </div>
@@ -84,11 +84,12 @@ $equipeDAO = new EquipeDAO();
         <label for="nome">CPF</label>
         <input type="text" class="form-control" name="cpf"required>
       </div>
+      <div class="form-row">
       <div class="form-group col-md-1">
         <label for="nome">Salário</label>
         <input type="num" class="form-control" name="salario">
       </div>
-      <div class="form-group col-md-2">
+      <div class="form-group col-md-3">
         <label for="inputFuncao">Função</label>
         <select id="inputFuncao" class="form-control" name="inputFuncao">
           <option selected>Escolher...</option>
@@ -149,6 +150,7 @@ $equipeDAO = new EquipeDAO();
                     <input type="text" class="form-control" name="tipoconta" placeholder="Corrente ou Poupança">
                   </div>
 
+                </div>
                 </div>
               </div>
             </div>
