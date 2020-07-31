@@ -48,7 +48,7 @@ $equipeDAO = new EquipeDAO();
                     <td>{$equipe['TEQUIPE_RESP']}</td>
                     <td>{$equipe['TEQUIPE_VLR_SERV']}</td>
                     <td>
-                    <a class='btn btn-primary btn-sm' role='button' href='editaRequipes.php?id={$equipe['TEQUIPE_ID_PK']}' >Editar</a>
+                    <a class='btn btn-primary btn-sm' role='button' href='editarEquipes.php?id={$equipe['TEQUIPE_ID_PK']}' >Editar</a>
                     </td>
                     </tr>
                     ";

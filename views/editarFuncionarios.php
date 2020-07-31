@@ -210,7 +210,7 @@ function feedBox($id, $model, $attr)
 
       </div>
       <button type="submit" class="btn btn-primary " data-confirm=''>Salvar</button>
-      <a class="btn btn-danger" href="listafuncionarios.php " role="button">Sair</a>
+      <a class="btn btn-danger" href="listaFuncionarios.php " role="button">Sair</a>
     </div>
 
   </form>

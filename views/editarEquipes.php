@@ -71,7 +71,7 @@ function feedForm($id, $worker, $attr)
     </div>
 
     <button type="submit" class="btn btn-primary lg">Salvar</button>
-    <a href="listaequipes.php" class="btn btn-secondary">Sair</a>
+    <a href="listaEquipes.php" class="btn btn-secondary">Sair</a>
   </form>
 
   <!--PHP CODE -->

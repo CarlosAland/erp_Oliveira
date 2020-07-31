@@ -46,7 +46,7 @@ $ltDAO = new LtDAO();
                     <td>{$lts['TLT_LOCAL']}</td>
                     <td>{$lts['TLT_SIGLA']}</td>
                     <td>
-                    <a class='btn btn-primary' role='button' href='editarlts.php?id={$lts['TLT_ID_PK']}' >Editar</a>
+                    <a class='btn btn-primary' role='button' href='editarLts.php?id={$lts['TLT_ID_PK']}' >Editar</a>
                   
                 
                     </td>

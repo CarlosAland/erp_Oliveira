@@ -18,8 +18,6 @@ $funcionarioDAO = new FuncionarioDAO();
 <a class="btn btn-danger" href="dashboard.php " role="button">Voltar</a>
 <a class="btn btn-success" href="cadastroFuncionarios.php " role="button">Cadastrar Novo</a>
 
-
-
   <div class="container theme-showcase" role="main">
     <div class="page-header">
 
@@ -31,7 +29,7 @@ $funcionarioDAO = new FuncionarioDAO();
                 <th>Código</th>
                 <th>Nome Funcionário</th>
                 <th>CPF</th>
-                <th>Telefone</th>
+                <th>RG</th>
                 <th>Ação</th>
               </tr>
             </thead>
@@ -41,10 +39,10 @@ $funcionarioDAO = new FuncionarioDAO();
                 //  var_dump($funcionarios);
                 echo "
                     <tr>
-                    <th scope='row'>{$funcionarios['TFUNC_ID']}</th>
+                    <th scope='row'>{$funcionarios['TFUNC_CODIGO']}</th>
                     <td>{$funcionarios['TFUNC_NOME']}</td>
                     <td>{$funcionarios['TFUNC_CPF']}</td>
-                    <td>{$funcionarios['TFUNC_CEL']}</td>
+                    <td>{$funcionarios['TFUNC_RG']}</td>
                     <td>
                     <a class='btn btn-primary' role='button' href='editarFuncionarios.php?id={$funcionarios['TFUNC_ID']}' >Editar</a>
                 
