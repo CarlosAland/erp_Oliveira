@@ -2,9 +2,13 @@
 require_once(__DIR__ . '../../templates/cabecalho.php');
 require_once(__DIR__ . '../../controllers/LtDAO.php');
 require_once(__DIR__ . '/../controllers/EquipeDAO.php');
+require_once(__DIR__ . '/../controllers/RegiaoDAO.php');
 require_once(__DIR__ . '/../controllers/producaoDAO.php');
 require_once(__DIR__ . '/../models/Producao.php');
 
+
+
+$rDAO = new RegiaoDAO();
 $ltDAO = new LtDAO();
 $producaoDAO = new ProducaoDAO();
 $equipeDAO = new EquipeDAO();
@@ -26,20 +30,12 @@ function feedForm($id, $worker, $attr)
 
 ?>
 
-
-
 <body>
   <header class="cabecalho">
     <h1>Oliveira Podas</h1>
     <h2>Cadastro de Produção Diária</h2>
 
   </header>
-
-
-
-
-
-
 
   <!-- script calcula total m2-->
   <script type="text/javascript">
@@ -49,11 +45,6 @@ function feedForm($id, $worker, $attr)
       document.getElementById("m2").value = num1 * num2;
     }
   </script>
-
-
-
-
-
   <div>
 
     <form class="formtop" action="" method="POST" enctype="multipart/form-data" name="formProd">
@@ -67,16 +58,13 @@ function feedForm($id, $worker, $attr)
           <label for="nome">data</label>
           <input type="date" class="form-control" name="dataprod" required>
         </div>
-
-
-
         <div class="form-group col-md-6">
           <label for="inputRegiao">Lt</label>
           <select id="inputRegiao" class="form-control" name="inputRegiao" required>
             <option selected>Escolher...</option>
             <?php
             foreach ($ltDAO->read() as $lts) {
-              echo "<option value='{$lts['TLT_ID_PK']}'> {$lts['TLT_NOME']} -  {$lts['TLT_LOCAL']} - {$lts['TLT_SIGLA']}</option>";
+              echo "<option value='{$lts['TLT_ID_PK']}'> {$lts['TLT_NOME']} -  {$lts['TLT_LOCAL']} - {$lts['TLT_SIGLA']} </option>";
             } ?>
           </select>
         </div>
@@ -108,13 +96,13 @@ function feedForm($id, $worker, $attr)
 
         <div class="form-group col-md-5">
           <label for="nome">Imagem Antes</label>
-          <input type="file" class="form-control" name="img_antes" required>
+          <input type="file" class="form-control" name="img_antes">
         </div>
 
 
         <div class="form-group col-md-5">
           <label for="nome">Imagem Depois</label>
-          <input type="file" class="form-control" name="img_depois" required>
+          <input type="file" class="form-control" name="img_depois">
         </div>
       </div>
 
@@ -163,7 +151,7 @@ function feedForm($id, $worker, $attr)
       if (checkImgType('img_antes')) {
         $newFileNamePrev = namePhotor('img_antes', $dataproducao);
         if (move_uploaded_file($_FILES['img_antes']['tmp_name'], __DIR__ . "/../uploads/{$eqNameDir}/{$newFileNamePrev}")) {
-          $img1 = __DIR__ . "/../uploads/{$eqNameDir}/{$newFileNamePrev}";
+          $img1 = __DIR__ . "/uploads/{$eqNameDir}/{$newFileNamePrev}";
 
           echo "<script>Swal.fire('', 'Arquivo enviado com sucesso!', 'success');</script>";
         } else {
@@ -178,7 +166,7 @@ function feedForm($id, $worker, $attr)
       if (checkImgType('img_depois')) {
         $newFileNameAfter = namePhotor('img_depois', $dataproducao);
         if (move_uploaded_file($_FILES['img_depois']['tmp_name'], __DIR__ . "/../uploads/{$eqNameDir}/{$newFileNameAfter}")) {
-          $img2 =  __DIR__ . "/../uploads/{$eqNameDir}/{$newFileNameAfter}";
+          $img2 =  __DIR__ . "/uploads/{$eqNameDir}/{$newFileNameAfter}";
           echo "<script>Swal.fire('', 'Arquivo enviado com sucesso!', 'success');</script>";
         } else {
           echo "<script>Swal.fire('Ops...', 'Erro Inesperado!', 'error');</script>";
@@ -212,8 +200,8 @@ function feedForm($id, $worker, $attr)
           $formArray['vao'],
           str_replace(',', '.', $_POST['comp']),
           str_replace(',', '.', $_POST['larg']),
-          $img1,
-          $img1,
+          str_replace('views/', '',  $img1),
+          str_replace('views/', '',  $img2),
           $cid,
           $vlrservico[0]['TEQUIPE_VLR_SERV']
         );

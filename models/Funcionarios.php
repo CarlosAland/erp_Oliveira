@@ -46,7 +46,7 @@ class Funcionario
         $this->cpf = $cpf;
         $this->datanasc = $datanasc;
         $this->dataadmissao = $dataadmissao;
-        $this->salario = number_format($salario, '2', '.', ',');;
+        $this->salario = $salario;
         $this->funcao = $funcao;
         $this->banco = $banco;
         $this->agencia = $agencia;

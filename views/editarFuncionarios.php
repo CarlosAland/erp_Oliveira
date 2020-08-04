@@ -12,6 +12,7 @@ $funcionarioDAO = new FuncionarioDAO();
 $funcaoDAO = new FuncaoDAO();
 $equipeDAO = new EquipeDAO();
 
+
 $funcionarios = [];
 $equipe = [];
 $funcao = [];
@@ -35,6 +36,7 @@ function feedForm($id, $worker, $attr)
 {
   return $id != '' ? $worker[0][$attr] : '';
 }
+
 function feedBox($id, $model, $attr)
 {
   if ($id != '') {
@@ -42,6 +44,9 @@ function feedBox($id, $model, $attr)
     return $model != [] ? $model[0][$attr] : '';
   }
 }
+
+
+
 
 ?>
 <header class="cabecalho">
@@ -64,13 +69,13 @@ function feedBox($id, $model, $attr)
         <input type="text" class="form-control" name="nome" value="<?= feedForm($id, $funcionarios, 'TFUNC_NOME') ?>">
       </div>
       <div class="custom-control custom-radio">
-          <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="<?= feedForm($id, $funcionarios, 'TFUNC_STATUS') ?>">
-          <label class="custom-control-label" for="customRadio1">Ativo </label>
-        </div>
-        <div class="custom-control custom-radio">
-          <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="<?= feedForm($id, $funcionarios, 'TFUNC_STATUS') ?>">
-          <label class="custom-control-label" for="customRadio2">Inativo </label>
-        </div>
+        <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="<?= feedForm($id, $funcionarios, 'TFUNC_STATUS') ?>" selected>
+        <label class="custom-control-label" for="customRadio1">Ativo </label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input type="radio" id="customRadio2" name="status" class="custom-control-input" value="<?= feedForm($id, $funcionarios, 'TFUNC_STATUS') ?>">
+        <label class="custom-control-label" for="customRadio2">Inativo </label>
+      </div>
 
     </div>
 
@@ -205,12 +210,12 @@ function feedBox($id, $model, $attr)
             </div>
           </div>
         </div>
-        </div>
-
-
       </div>
-      <button type="submit" class="btn btn-primary " data-confirm=''>Salvar</button>
-      <a class="btn btn-danger" href="listaFuncionarios.php " role="button">Sair</a>
+
+
+    </div>
+    <button type="submit" class="btn btn-primary " data-confirm=''>Salvar</button>
+    <a class="btn btn-danger" href="listaFuncionarios.php " role="button">Sair</a>
     </div>
 
   </form>

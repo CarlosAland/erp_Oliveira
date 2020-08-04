@@ -12,7 +12,7 @@ class RegiaoDAO
       $stmt = Conect::getConn()->prepare($sql);
 
       $stmt->bindValue(1, $regiao->getNome());
-      $stmt->bindValue(2, $status->getStatus());
+      $stmt->bindValue(2, $regiao->getStatus());
 
       $stmt->execute();
     } catch (Exception $e) {
